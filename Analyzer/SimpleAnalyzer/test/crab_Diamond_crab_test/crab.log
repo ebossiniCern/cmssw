@@ -1,0 +1,211 @@
+DEBUG 2018-11-28 19:14:51,497: 	 Executing command: 'submit'
+DEBUG 2018-11-28 19:14:51,497: 	 Found CRAB cache file /afs/cern.ch/user/e/ebossini/.crab3
+DEBUG 2018-11-28 19:14:51,504: 	 Checking credentials
+DEBUG 2018-11-28 19:14:51,504: 	 Found proxy file /tmp/x509up_u3637
+DEBUG 2018-11-28 19:14:51,504: 	 Getting proxy life time left
+DEBUG 2018-11-28 19:14:52,210: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -timeleft
+ output : 43026
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-28 19:14:52,915: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -actimeleft
+ output : 43026
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-28 19:14:52,916: 	 Proxy valid for 11:57:06 hours
+INFO 2018-11-28 19:14:52,916: 	 Will use CRAB configuration file crabConfig.py
+DEBUG 2018-11-28 19:14:52,916: 	 Loading CRAB configuration file.
+DEBUG 2018-11-28 19:14:52,920: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+DEBUG 2018-11-28 19:14:53,060: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=ebossini/CN=717846/CN=Edoardo Bossini
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-28 19:14:53,061: 	 Checking credentials
+DEBUG 2018-11-28 19:14:53,061: 	 Found proxy file /tmp/x509up_u3637
+DEBUG 2018-11-28 19:14:53,061: 	 Getting proxy life time left
+DEBUG 2018-11-28 19:14:53,668: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -timeleft
+ output : 43025
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-28 19:14:54,374: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -actimeleft
+ output : 43024
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-28 19:14:54,374: 	 Proxy valid for 11:57:05 hours
+DEBUG 2018-11-28 19:14:55,082: 	 Executing : 
+ command : env X509_USER_PROXY=/tmp/x509up_u3637 voms-proxy-info -fqan
+ output : /cms/Role=NULL/Capability=NULL
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-28 19:14:56,069: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+DEBUG 2018-11-28 19:14:56,179: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=ebossini/CN=717846/CN=Edoardo Bossini
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-28 19:14:56,180: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2018-11-28 19:14:56,180: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=ebossini/CN=717846/CN=Edoardo Bossini_cmsweb.cern.ch for credential name
+DEBUG 2018-11-28 19:14:56,485: 	 Executing : 
+ command : myproxy-info -l d65a62e6d26ca6e01ab377190a43a83a1143878f -s myproxy.cern.ch
+ output : 
+ error: ERROR from myproxy-server:
+no credentials found for user d65a62e6d26ca6e01ab377190a43a83a1143878f, owner "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=ebossini/CN=717846/CN=Edoardo Bossini" 
+
+ retcode : 1
+DEBUG 2018-11-28 19:14:56,486: 	 Myproxy is valid: -1
+DEBUG 2018-11-28 19:14:56,590: 	 Executing : 
+ command : openssl x509 -noout -in ~/.globus/usercert.pem -dates
+ output : notBefore=Oct  2 11:14:55 2018 GMT
+notAfter=Nov  6 11:14:55 2019 GMT
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-28 19:14:56,605: 	 Delegating a myproxy for 720:00 hours
+DEBUG 2018-11-28 19:14:56,605: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=ebossini/CN=717846/CN=Edoardo Bossini_cmsweb.cern.ch for credential name
+DEBUG 2018-11-28 19:15:01,526: 	 Executing : 
+ command : export GT_PROXY_MODE=rfc ; myproxy-init -d -n -s myproxy.cern.ch -x -R '/DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch' -x -Z '/DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch' -l 'd65a62e6d26ca6e01ab377190a43a83a1143878f' -t 168:00 -c 720:00
+ output : Your identity: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=ebossini/CN=717846/CN=Edoardo Bossini
+Creating proxy ........................................ Done
+Proxy Verify OK
+Your proxy is valid until: Fri Dec 28 19:15:01 2018
+A proxy valid for 720 hours (30.0 days) for user d65a62e6d26ca6e01ab377190a43a83a1143878f now exists on myproxy.cern.ch.
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-28 19:15:01,527: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=ebossini/CN=717846/CN=Edoardo Bossini_cmsweb.cern.ch for credential name
+DEBUG 2018-11-28 19:15:01,934: 	 Executing : 
+ command : myproxy-info -l d65a62e6d26ca6e01ab377190a43a83a1143878f -s myproxy.cern.ch
+ output : username: d65a62e6d26ca6e01ab377190a43a83a1143878f
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=ebossini/CN=717846/CN=Edoardo Bossini
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  timeleft: 720:00:00  (30.0 days)
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-28 19:15:01,935: 	 My-proxy delegated.
+DEBUG 2018-11-28 19:15:01,935: 	 Command use: submit
+DEBUG 2018-11-28 19:15:01,936: 	 Options use: []
+DEBUG 2018-11-28 19:15:04,022: 	 CRABClient version: 3.3.1809
+DEBUG 2018-11-28 19:15:04,022: 	 Instance is prod
+DEBUG 2018-11-28 19:15:04,022: 	 Server base url is cmsweb.cern.ch
+DEBUG 2018-11-28 19:15:04,022: 	 Command url /crabserver/prod/workflow
+DEBUG 2018-11-28 19:15:04,023: 	 Started submission
+DEBUG 2018-11-28 19:15:04,023: 	 Working on /afs/cern.ch/work/e/ebossini/Analysis/CMSSW_10_2_0_pre6/src/Analyzer/SimpleAnalyzer/test/crab_Diamond_crab_test
+DEBUG 2018-11-28 19:15:05,221: 	 Loading required information from the environment
+DEBUG 2018-11-28 19:15:05,221: 	 Found CMSSW_10_2_0_pre6 for slc6_amd64_gcc630 with base /afs/cern.ch/work/e/ebossini/Analysis/CMSSW_10_2_0_pre6
+DEBUG 2018-11-28 19:15:05,221: 	 Loading required information from the environment
+DEBUG 2018-11-28 19:15:05,221: 	 Found CMSSW_10_2_0_pre6 for slc6_amd64_gcc630 with base /afs/cern.ch/work/e/ebossini/Analysis/CMSSW_10_2_0_pre6
+DEBUG 2018-11-28 19:15:05,248: 	 UNIQUE NAME: tarUUID 8429d889-02a9-41d4-aeff-56a3cdcea243 
+DEBUG 2018-11-28 19:15:05,249: 	 self.config: from WMCore.Configuration import Configuration
+config = Configuration()
+config.section_('General')
+config.General.transferOutputs = True
+config.General.transferLogs = True
+config.General.requestName = 'Diamond_crab_test'
+config.section_('JobType')
+config.JobType.psetName = 'test.py'
+config.JobType.pluginName = 'Analysis'
+config.JobType.outputFiles = ['outputfile_crabTest.root']
+config.section_('Data')
+config.Data.inputDataset = '/ZeroBias/Run2018C-PromptReco-v1/AOD'
+config.Data.unitsPerJob = 5000
+config.Data.inputDBS = 'global'
+config.Data.splitting = 'EventAwareLumiBased'
+config.Data.outLFNDirBase = '/afs/cern.ch/work/e/ebossini/Analysis/CMSSW_10_2_0_pre6/src/CrabOut'
+config.Data.runRange = '319337'
+config.section_('Site')
+config.Site.storageSite = 'T2_CH_CERN'
+config.section_('User')
+config.section_('Debug')
+
+DEBUG 2018-11-28 19:15:05,249: 	 self.config.JobType.psetName: test.py
+INFO 2018-11-28 19:15:05,249: 	 Importing CMSSW configuration test.py
+INFO 2018-11-28 19:15:06,914: 	 Finished importing CMSSW configuration test.py
+DEBUG 2018-11-28 19:15:06,915: 	 Writing CMSSW configuration to /afs/cern.ch/work/e/ebossini/Analysis/CMSSW_10_2_0_pre6/src/Analyzer/SimpleAnalyzer/test/crab_Diamond_crab_test/inputs/PSet.py
+DEBUG 2018-11-28 19:15:07,060: 	 The following EDM output files will be collected: []
+DEBUG 2018-11-28 19:15:07,060: 	 The following TFile output files will be collected: ['output.root']
+DEBUG 2018-11-28 19:15:07,060: 	 The following user output files will be collected: ['outputfile_crabTest.root']
+DEBUG 2018-11-28 19:15:07,060: 	 Loading required information from the environment
+DEBUG 2018-11-28 19:15:07,060: 	 Found CMSSW_10_2_0_pre6 for slc6_amd64_gcc630 with base /afs/cern.ch/work/e/ebossini/Analysis/CMSSW_10_2_0_pre6
+DEBUG 2018-11-28 19:15:07,060: 	 Making tarball in /afs/cern.ch/work/e/ebossini/Analysis/CMSSW_10_2_0_pre6/src/Analyzer/SimpleAnalyzer/test/crab_Diamond_crab_test/inputs/8429d889-02a9-41d4-aeff-56a3cdcea243default.tgz
+DEBUG 2018-11-28 19:15:07,078: 	 Checking directory /afs/cern.ch/work/e/ebossini/Analysis/CMSSW_10_2_0_pre6/lib
+DEBUG 2018-11-28 19:15:07,078: 	 Adding directory /afs/cern.ch/work/e/ebossini/Analysis/CMSSW_10_2_0_pre6/lib to tarball
+DEBUG 2018-11-28 19:15:07,219: 	 Checking directory /afs/cern.ch/work/e/ebossini/Analysis/CMSSW_10_2_0_pre6/biglib
+DEBUG 2018-11-28 19:15:07,219: 	 Adding directory /afs/cern.ch/work/e/ebossini/Analysis/CMSSW_10_2_0_pre6/biglib to tarball
+DEBUG 2018-11-28 19:15:07,221: 	 Checking directory /afs/cern.ch/work/e/ebossini/Analysis/CMSSW_10_2_0_pre6/module
+DEBUG 2018-11-28 19:15:10,517: 	 Uploading archive /afs/cern.ch/work/e/ebossini/Analysis/CMSSW_10_2_0_pre6/src/Analyzer/SimpleAnalyzer/test/crab_Diamond_crab_test/inputs/8429d889-02a9-41d4-aeff-56a3cdcea243default.tgz (174 KB) to the CRAB cache. Using URI https://cmsweb.cern.ch/crabcache
+DEBUG 2018-11-28 19:15:11,445: 	 Loading required information from the environment
+DEBUG 2018-11-28 19:15:11,445: 	 Found CMSSW_10_2_0_pre6 for slc6_amd64_gcc630 with base /afs/cern.ch/work/e/ebossini/Analysis/CMSSW_10_2_0_pre6
+DEBUG 2018-11-28 19:15:11,446: 	 Making tarball in /afs/cern.ch/work/e/ebossini/Analysis/CMSSW_10_2_0_pre6/src/Analyzer/SimpleAnalyzer/test/crab_Diamond_crab_test/inputs/debugFiles.tgz
+DEBUG 2018-11-28 19:15:11,451: 	 Uploading archive /afs/cern.ch/work/e/ebossini/Analysis/CMSSW_10_2_0_pre6/src/Analyzer/SimpleAnalyzer/test/crab_Diamond_crab_test/inputs/debugFiles.tgz (2 KB) to the CRAB cache. Using URI https://cmsweb.cern.ch/crabcache
+DEBUG 2018-11-28 19:15:12,323: 	 Result uploading input files: b27b359ff573a9a11fca5977188457646e201f2c27a1d2787eed05a33ab993b3.tar.gz 
+WARNING 2018-11-28 19:15:12,326: 	 Warning: The following output files will not be published, as they are not EDM files: ['output.root', 'outputfile_crabTest.root']
+INFO 2018-11-28 19:15:12,326: 	 Sending the request to the server
+DEBUG 2018-11-28 19:15:12,326: 	 Submitting {'maxjobruntime': 1250, 'extrajdl': [], 'ignorelocality': 0, 'savelogsflag': 1, 'useparent': 0, 'asyncdest': 'T2_CH_CERN', 'algoargs': 5000, 'cachefilename': 'b27b359ff573a9a11fca5977188457646e201f2c27a1d2787eed05a33ab993b3.tar.gz', 'numcores': 1, 'addoutputfiles': ['outputfile_crabTest.root'], 'generator': 'pythia', 'maxmemory': 2000, 'publishdbsurl': 'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', 'priority': 10, 'jobsw': 'CMSSW_10_2_0_pre6', 'edmoutfiles': [], 'userfiles': [], 'primarydataset': '', 'inputdata': '/ZeroBias/Run2018C-PromptReco-v1/AOD', 'lfn': '/afs/cern.ch/work/e/ebossini/Analysis/CMSSW_10_2_0_pre6/src/CrabOut', 'dryrun': 0, 'workflow': 'crab_Diamond_crab_test', 'cacheurl': u'https://cmsweb.cern.ch/crabcache', 'runs': ['319337'], 'lumis': ['1,268435455'], 'nonprodsw': 0, 'tfileoutfiles': ['output.root'], 'oneEventMode': 0, 'debugfilename': 'fa886b928326f0783c8f7559d54b084000fce648de45b3745eaef194367dbf11.tar.gz', 'saveoutput': 1, 'publication': 1, 'jobarch': 'slc6_amd64_gcc630', 'totalunits': 0, 'splitalgo': 'EventAwareLumiBased', 'ignoreglobalblacklist': 0, 'nonvaliddata': 0, 'dbsurl': 'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', 'publishgroupname': 0, 'jobtype': 'Analysis', 'publishname2': ''} 
+DEBUG 2018-11-28 19:15:12,326: 	 Encoded submit request: maxjobruntime=1250&ignorelocality=0&savelogsflag=1&useparent=0&asyncdest=T2_CH_CERN&algoargs=5000&cachefilename=b27b359ff573a9a11fca5977188457646e201f2c27a1d2787eed05a33ab993b3.tar.gz&numcores=1&generator=pythia&maxmemory=2000&publishdbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fphys03%2FDBSWriter&priority=10&jobsw=CMSSW_10_2_0_pre6&primarydataset=&inputdata=%2FZeroBias%2FRun2018C-PromptReco-v1%2FAOD&lfn=%2Fafs%2Fcern.ch%2Fwork%2Fe%2Febossini%2FAnalysis%2FCMSSW_10_2_0_pre6%2Fsrc%2FCrabOut&dryrun=0&workflow=crab_Diamond_crab_test&cacheurl=https%3A%2F%2Fcmsweb.cern.ch%2Fcrabcache&nonprodsw=0&oneEventMode=0&debugfilename=fa886b928326f0783c8f7559d54b084000fce648de45b3745eaef194367dbf11.tar.gz&saveoutput=1&publication=1&jobarch=slc6_amd64_gcc630&totalunits=0&splitalgo=EventAwareLumiBased&ignoreglobalblacklist=0&nonvaliddata=0&dbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fglobal%2FDBSReader&publishgroupname=0&jobtype=Analysis&publishname2=&addoutputfiles=outputfile_crabTest.root&tfileoutfiles=output.root&runs=319337&lumis=1%2C268435455
+INFO 2018-11-28 19:15:13,474: 	 The server answered with an error.
+INFO 2018-11-28 19:15:13,474: 	 Server answered with: Invalid input parameter
+INFO 2018-11-28 19:15:13,474: 	 Reason is: Incorrect 'Data.outLFNDirBase' parameter
+INFO 2018-11-28 19:15:13,474: 	 Error Id: beed8589e65b8da6d2a75d7fcd6ce7b4
+DEBUG 2018-11-28 19:15:13,474: 	 ERROR: Bad Request (400):  '<!DOCTYPE html PUBLIC
+"-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+    <title>400 Bad Request</title>
+    <style type="text/css">
+    #powered_by {
+        margin-top: 20px;
+        border-top: 2px solid black;
+        font-style: italic;
+    }
+
+    #traceback {
+        color: red;
+    }
+    </style>
+</head>
+    <body>
+        <h2>400 Bad Request</h2>
+        <p>Invalid input parameter</p>
+        <pre id="traceback"></pre>
+    <div id="powered_by">
+      <span>
+        Powered by <a href="http://www.cherrypy.org">CherryPy unknown</a>
+      </span>
+    </div>
+    </body>
+</html>
+'
+DEBUG 2018-11-28 19:15:13,474: 	 Command failed with URI: https://cmsweb.cern.ch/crabserver/prod/workflow
+DEBUG 2018-11-28 19:15:13,474: 	      Input data: maxjobruntime=1250&ignorelocality=0&savelogsflag=1&useparent=0&asyncdest=T2_CH_CERN&algoargs=5000&cachefilename=b27b359ff573a9a11fca5977188457646e201f2c27a1d2787eed05a33ab993b3.tar.gz&numcores=1&generator=pythia&maxmemory=2000&publishdbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fphys03%2FDBSWriter&priority=10&jobsw=CMSSW_10_2_0_pre6&primarydataset=&inputdata=%2FZeroBias%2FRun2018C-PromptReco-v1%2FAOD&lfn=%2Fafs%2Fcern.ch%2Fwork%2Fe%2Febossini%2FAnalysis%2FCMSSW_10_2_0_pre6%2Fsrc%2FCrabOut&dryrun=0&workflow=crab_Diamond_crab_test&cacheurl=https%3A%2F%2Fcmsweb.cern.ch%2Fcrabcache&nonprodsw=0&oneEventMode=0&debugfilename=fa886b928326f0783c8f7559d54b084000fce648de45b3745eaef194367dbf11.tar.gz&saveoutput=1&publication=1&jobarch=slc6_amd64_gcc630&totalunits=0&splitalgo=EventAwareLumiBased&ignoreglobalblacklist=0&nonvaliddata=0&dbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fglobal%2FDBSReader&publishgroupname=0&jobtype=Analysis&publishname2=&addoutputfiles=outputfile_crabTest.root&tfileoutfiles=output.root&runs=319337&lumis=1%2C268435455
+DEBUG 2018-11-28 19:15:13,474: 	      Request headers: {'Content-Length': '734', 'X-Error-Http': '400', 'X-Rest-Time': '258324.862 us', 'Server': 'CherryPy/unknown', 'Connection': 'close', 'X-Error-Detail': 'Invalid input parameter', 'CMS-Server-Time': 'D=284189 t=1543428913184842', 'X-Rest-Status': '302', 'Date': 'Wed, 28 Nov 2018 18:15:13 GMT', 'Content-Type': 'text/html;charset=utf-8', 'X-Error-Info': "Incorrect 'lfn' parameter", 'X-Error-Id': 'beed8589e65b8da6d2a75d7fcd6ce7b4'}
+ERROR 2018-11-28 19:15:13,475: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/bin/crab", line 160, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/bin/crab", line 148, in __call__
+    self.cmd()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/Commands/submit.py", line 127, in __call__
+    dictresult, status, reason = server.put(self.uri, data = self.configreq_encoded)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/RESTInteractions.py", line 91, in put
+    return self.makeRequest(uri = uri, data = data, verb = 'PUT')
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/RESTInteractions.py", line 128, in makeRequest
+    capath=caCertPath)#, verbose=True)# for debug
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/WMCore/Services/pycurl_manager.py", line 207, in request
+    raise exc
+HTTPException: url=https://cmsweb.cern.ch/crabserver/prod/workflow, code=400, reason=Bad Request, headers={'Content-Length': '734', 'X-Error-Http': '400', 'X-Rest-Time': '258324.862 us', 'Server': 'CherryPy/unknown', 'Connection': 'close', 'X-Error-Detail': 'Invalid input parameter', 'CMS-Server-Time': 'D=284189 t=1543428913184842', 'X-Rest-Status': '302', 'Date': 'Wed, 28 Nov 2018 18:15:13 GMT', 'Content-Type': 'text/html;charset=utf-8', 'X-Error-Info': "Incorrect 'lfn' parameter", 'X-Error-Id': 'beed8589e65b8da6d2a75d7fcd6ce7b4'}
+INFO 2018-11-28 19:15:13,487: 	 Log file is /afs/cern.ch/work/e/ebossini/Analysis/CMSSW_10_2_0_pre6/src/Analyzer/SimpleAnalyzer/test/crab_Diamond_crab_test/crab.log

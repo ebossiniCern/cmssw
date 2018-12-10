@@ -1,0 +1,477 @@
+DEBUG 2018-11-28 19:12:26,126: 	 Executing command: 'submit'
+DEBUG 2018-11-28 19:12:26,126: 	 Could not find CRAB cache file /afs/cern.ch/user/e/ebossini/.crab3; creating a new one.
+DEBUG 2018-11-28 19:12:26,144: 	 Checking credentials
+DEBUG 2018-11-28 19:12:26,145: 	 Found proxy file /tmp/x509up_u3637
+DEBUG 2018-11-28 19:12:26,145: 	 Getting proxy life time left
+DEBUG 2018-11-28 19:12:27,052: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -timeleft
+ output : 43172
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-28 19:12:27,761: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -actimeleft
+ output : 43171
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-28 19:12:27,761: 	 Proxy valid for 11:59:32 hours
+ERROR 2018-11-28 19:12:27,762: 	 CRAB configuration file crabConfig.py not found.
+ERROR 2018-11-28 19:12:27,762: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/bin/crab", line 160, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/bin/crab", line 146, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/Commands/submit.py", line 34, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/Commands/SubCommand.py", line 303, in __init__
+    self.loadConfig(self.options.config, self.args)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/Commands/SubCommand.py", line 46, in loadConfig
+    raise ConfigurationException("CRAB configuration file %s not found." % (configname))
+ConfigurationException: CRAB configuration file crabConfig.py not found.
+DEBUG 2018-11-28 19:13:30,946: 	 Executing command: 'submit'
+DEBUG 2018-11-28 19:13:30,948: 	 Found CRAB cache file /afs/cern.ch/user/e/ebossini/.crab3
+DEBUG 2018-11-28 19:13:30,961: 	 Checking credentials
+DEBUG 2018-11-28 19:13:30,963: 	 Found proxy file /tmp/x509up_u3637
+DEBUG 2018-11-28 19:13:30,963: 	 Getting proxy life time left
+DEBUG 2018-11-28 19:13:31,769: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -timeleft
+ output : 43107
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-28 19:13:32,474: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -actimeleft
+ output : 43106
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-28 19:13:32,475: 	 Proxy valid for 11:58:27 hours
+ERROR 2018-11-28 19:13:32,475: 	 CRAB configuration file crabConfig.py not found.
+ERROR 2018-11-28 19:13:32,475: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/bin/crab", line 160, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/bin/crab", line 146, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/Commands/submit.py", line 34, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/Commands/SubCommand.py", line 303, in __init__
+    self.loadConfig(self.options.config, self.args)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/Commands/SubCommand.py", line 46, in loadConfig
+    raise ConfigurationException("CRAB configuration file %s not found." % (configname))
+ConfigurationException: CRAB configuration file crabConfig.py not found.
+DEBUG 2018-11-28 19:14:17,561: 	 Executing command: 'submit'
+DEBUG 2018-11-28 19:14:17,561: 	 Found CRAB cache file /afs/cern.ch/user/e/ebossini/.crab3
+DEBUG 2018-11-28 19:14:17,568: 	 Checking credentials
+DEBUG 2018-11-28 19:14:17,570: 	 Found proxy file /tmp/x509up_u3637
+DEBUG 2018-11-28 19:14:17,570: 	 Getting proxy life time left
+DEBUG 2018-11-28 19:14:18,681: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -timeleft
+ output : 43060
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-28 19:14:19,389: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -actimeleft
+ output : 43059
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-28 19:14:19,390: 	 Proxy valid for 11:57:40 hours
+ERROR 2018-11-28 19:14:19,390: 	 CRAB configuration file crabConfig.py not found.
+ERROR 2018-11-28 19:14:19,390: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/bin/crab", line 160, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/bin/crab", line 146, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/Commands/submit.py", line 34, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/Commands/SubCommand.py", line 303, in __init__
+    self.loadConfig(self.options.config, self.args)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/Commands/SubCommand.py", line 46, in loadConfig
+    raise ConfigurationException("CRAB configuration file %s not found." % (configname))
+ConfigurationException: CRAB configuration file crabConfig.py not found.
+DEBUG 2018-11-29 12:04:49,725: 	 Executing command: 'checkwrite'
+DEBUG 2018-11-29 12:04:49,728: 	 Found CRAB cache file /afs/cern.ch/user/e/ebossini/.crab3
+DEBUG 2018-11-29 12:04:49,762: 	 Checking credentials
+DEBUG 2018-11-29 12:04:49,764: 	 Found proxy file /tmp/x509up_u3637
+DEBUG 2018-11-29 12:04:49,764: 	 Getting proxy life time left
+DEBUG 2018-11-29 12:04:50,683: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -timeleft
+ output : 42324
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-29 12:04:51,591: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -actimeleft
+ output : 42323
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-29 12:04:51,591: 	 Proxy valid for 11:45:24 hours
+DEBUG 2018-11-29 12:04:51,706: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=ebossini/CN=717846/CN=Edoardo Bossini
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-29 12:04:51,706: 	 Checking credentials
+DEBUG 2018-11-29 12:04:51,707: 	 Found proxy file /tmp/x509up_u3637
+DEBUG 2018-11-29 12:04:51,707: 	 Getting proxy life time left
+DEBUG 2018-11-29 12:04:52,514: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -timeleft
+ output : 42322
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-29 12:04:53,434: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -actimeleft
+ output : 42321
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-29 12:04:53,434: 	 Proxy valid for 11:45:22 hours
+DEBUG 2018-11-29 12:04:54,341: 	 Executing : 
+ command : env X509_USER_PROXY=/tmp/x509up_u3637 voms-proxy-info -fqan
+ output : /cms/Role=NULL/Capability=NULL
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-29 12:04:54,341: 	 Command use: checkwrite
+DEBUG 2018-11-29 12:04:54,341: 	 Options use: ['--site=T2_CH_CERN']
+DEBUG 2018-11-29 12:04:54,341: 	 Instance is None
+DEBUG 2018-11-29 12:04:54,341: 	 Server base url is None
+DEBUG 2018-11-29 12:04:54,345: 	 Service initialised ({'endpoint': 'https://cmsweb.cern.ch/phedex/datasvc/json/prod/', 'key': '/tmp/x509up_u3637', 'maxcachereuse': 24.0, 'cachepath': '/tmp/ebossini/.wmcore_cache_PvBB_r/cmsweb.cern.ch', 'inputdata': {}, 'cert': '/tmp/x509up_u3637', 'timeout': 300, 'service_name': 'PhEDEx', 'requests': {'content_type': 'application/x-www-form-urlencoded', 'cacheduration': 0, 'host': 'https://cmsweb.cern.ch/phedex/datasvc/json/prod/', 'accept_type': 'text/html', 'key': '/tmp/x509up_u3637', 'deleteCacheOnExit': <WMCore.Services.Requests.TempDirectory object at 0x7f3bf5026d90>, 'endpoint_components': ParseResult(scheme='https', netloc='cmsweb.cern.ch', path='/phedex/datasvc/json/prod/', params='', query='', fragment=''), 'endpoint': 'https://cmsweb.cern.ch/phedex/datasvc/json/prod/', 'pycurl': True, 'cachepath': '/tmp/ebossini/.wmcore_cache_PvBB_r/cmsweb.cern.ch', 'cert': '/tmp/x509up_u3637', 'timeout': 300, 'req_cache_path': '/tmp/ebossini/.wmcore_cache_PvBB_r/cmsweb.cern.ch/.cache', 'logger': <logging.Logger object at 0x7f3bf5026250>}, 'logger': <logging.Logger object at 0x7f3bf5026250>, 'cacheduration': 0, 'method': None, 'pycurl': True}):
+	 host: cmsweb.cern.ch, basepath: https://cmsweb.cern.ch/phedex/datasvc/json/prod/ (text/html)
+	 cache: /tmp/ebossini/.wmcore_cache_PvBB_r/cmsweb.cern.ch (duration 0 hours, max reuse 24.0 hours)
+INFO 2018-11-29 12:04:54,345: 	 Will check write permission in the default location /store/user/<username>
+INFO 2018-11-29 12:04:54,345: 	 Retrieving DN from proxy...
+INFO 2018-11-29 12:04:56,418: 	 DN is: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=ebossini/CN=717846/CN=Edoardo Bossini
+INFO 2018-11-29 12:04:56,419: 	 Retrieving username from SiteDB...
+INFO 2018-11-29 12:05:00,232: 	 Username is: ebossini
+INFO 2018-11-29 12:05:00,232: 	 Validating LFN /store/user/ebossini...
+INFO 2018-11-29 12:05:00,233: 	 LFN /store/user/ebossini is valid.
+INFO 2018-11-29 12:05:00,252: 	 Will use `gfal-copy`, `gfal-rm` commands for checking write permissions
+INFO 2018-11-29 12:05:00,253: 	 Will check write permission in /store/user/ebossini on site T2_CH_CERN
+DEBUG 2018-11-29 12:05:00,257: 	 getData: 
+	url: lfn2pfn
+	data: {'node': ['T2_CH_CERN'], 'custodial': 'n', 'lfn': ['/store/user/ebossini/crab3checkwrite_20181129_120500/crab3checkwrite_20181129_120500.tmp'], 'protocol': 'srmv2'}
+INFO 2018-11-29 12:05:01,174: 	 
+Attempting to create (dummy) directory crab3checkwrite_20181129_120500 and copy (dummy) file crab3checkwrite_20181129_120500.tmp to /store/user/ebossini
+
+INFO 2018-11-29 12:05:01,181: 	 Executing command: which scram >/dev/null 2>&1 && eval `scram unsetenv -sh`; gfal-copy -p -v -t 180 file:///afs/cern.ch/work/e/ebossini/Analysis/CMSSW_10_2_0_pre6/src/crab3checkwrite_20181129_120500.tmp 'gsiftp://eoscmsftp.cern.ch//eos/cms/store/user/ebossini/crab3checkwrite_20181129_120500/crab3checkwrite_20181129_120500.tmp'
+INFO 2018-11-29 12:05:01,181: 	 Please wait...
+INFO 2018-11-29 12:05:02,141: 	 Failed running copy command
+INFO 2018-11-29 12:05:02,142: 	   Stdout:
+    Copying 85 bytes file:///afs/cern.ch/work/e/ebossini/Analysis/CMSSW_10_2_0_pre6/src/crab3checkwrite_20181129_120500.tmp => gsiftp://eoscmsftp.cern.ch//eos/cms/store/user/ebossini/crab3checkwrite_20181129_120500/crab3checkwrite_20181129_120500.tmp
+    event: [1543489502020] BOTH   GFAL2:CORE:COPY	LIST:ENTER	
+    event: [1543489502020] BOTH   GFAL2:CORE:COPY	LIST:ITEM	file:///afs/cern.ch/work/e/ebossini/Analysis/CMSSW_10_2_0_pre6/src/crab3checkwrite_20181129_120500.tmp => gsiftp://eoscmsftp.cern.ch//eos/cms/store/user/ebossini/crab3checkwrite_20181129_120500/crab3checkwrite_20181129_120500.tmp
+    event: [1543489502020] BOTH   GFAL2:CORE:COPY	LIST:EXIT	
+    
+INFO 2018-11-29 12:05:02,142: 	   Stderr:
+    gfal-copy error: 13 (Permission denied) - globus_ftp_client: the server responded with an error 500 mkdir() fail : [ERROR] Error response: Permission denied   
+    
+INFO 2018-11-29 12:05:02,198: 	 
+Checkwrite Result:
+INFO 2018-11-29 12:05:02,198: 	 Error: Unable to write in /store/user/ebossini on site T2_CH_CERN
+       You may want to contact the site administrators sending them the 'crab checkwrite' output as printed above.
+INFO 2018-11-29 12:05:02,198: 	 Note: You cannot write to a site if you did not ask permission.
+INFO 2018-11-29 12:05:03,850: 	 Additional diagnostic info for CERN EOS
+== id ==>:
+uid=3637(ebossini) gid=1468(zj) groups=1468(zj),1399(zh),2766(def-cg),1106592460 context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+== voms-proxy-info -all ==>:
+subject   : /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=ebossini/CN=717846/CN=Edoardo Bossini/CN=1049140074
+issuer    : /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=ebossini/CN=717846/CN=Edoardo Bossini
+identity  : /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=ebossini/CN=717846/CN=Edoardo Bossini
+type      : RFC3820 compliant impersonation proxy
+strength  : 2048
+path      : /tmp/x509up_u3637
+timeleft  : 11:45:11
+key usage : Digital Signature, Key Encipherment
+=== VO cms extension information ===
+VO        : cms
+subject   : /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=ebossini/CN=717846/CN=Edoardo Bossini
+issuer    : /DC=ch/DC=cern/OU=computers/CN=voms2.cern.ch
+attribute : /cms/Role=NULL/Capability=NULL
+timeleft  : 11:45:11
+uri       : voms2.cern.ch:15002
+
+== uberftp eoscmsftp.cern.ch pwd ==>:
+220 eoscmsftp01.cern.ch GridFTP Server 13.8 (gcc64, 1536386276-0) [Grid Community Toolkit 6.0] ready.
+230 User ebossini logged in.
+/afs/cern.ch/user/e/ebossini
+
+DEBUG 2018-11-29 12:05:39,970: 	 Executing command: 'checkwrite'
+DEBUG 2018-11-29 12:05:39,971: 	 Found CRAB cache file /afs/cern.ch/user/e/ebossini/.crab3
+DEBUG 2018-11-29 12:05:39,978: 	 Checking credentials
+DEBUG 2018-11-29 12:05:39,979: 	 Found proxy file /tmp/x509up_u3637
+DEBUG 2018-11-29 12:05:39,979: 	 Getting proxy life time left
+DEBUG 2018-11-29 12:05:40,991: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -timeleft
+ output : 42274
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-29 12:05:42,008: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -actimeleft
+ output : 42273
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-29 12:05:42,008: 	 Proxy valid for 11:44:34 hours
+DEBUG 2018-11-29 12:05:42,126: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=ebossini/CN=717846/CN=Edoardo Bossini
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-29 12:05:42,127: 	 Checking credentials
+DEBUG 2018-11-29 12:05:42,128: 	 Found proxy file /tmp/x509up_u3637
+DEBUG 2018-11-29 12:05:42,128: 	 Getting proxy life time left
+DEBUG 2018-11-29 12:05:43,152: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -timeleft
+ output : 42271
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-29 12:05:44,164: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -actimeleft
+ output : 42270
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-29 12:05:44,164: 	 Proxy valid for 11:44:31 hours
+DEBUG 2018-11-29 12:05:45,300: 	 Executing : 
+ command : env X509_USER_PROXY=/tmp/x509up_u3637 voms-proxy-info -fqan
+ output : /cms/Role=NULL/Capability=NULL
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-29 12:05:45,301: 	 Command use: checkwrite
+DEBUG 2018-11-29 12:05:45,301: 	 Options use: ['--site=T2_CH_CERN', '--lfn=/afs/cern.ch/work/e/ebossini/Analysis/CMSSW_10_2_0_pre6/src/']
+DEBUG 2018-11-29 12:05:45,301: 	 Instance is None
+DEBUG 2018-11-29 12:05:45,301: 	 Server base url is None
+DEBUG 2018-11-29 12:05:45,305: 	 Service initialised ({'endpoint': 'https://cmsweb.cern.ch/phedex/datasvc/json/prod/', 'key': '/tmp/x509up_u3637', 'maxcachereuse': 24.0, 'cachepath': '/tmp/ebossini/.wmcore_cache_C94UyA/cmsweb.cern.ch', 'inputdata': {}, 'cert': '/tmp/x509up_u3637', 'timeout': 300, 'service_name': 'PhEDEx', 'requests': {'content_type': 'application/x-www-form-urlencoded', 'cacheduration': 0, 'host': 'https://cmsweb.cern.ch/phedex/datasvc/json/prod/', 'accept_type': 'text/html', 'key': '/tmp/x509up_u3637', 'deleteCacheOnExit': <WMCore.Services.Requests.TempDirectory object at 0x7fd04ce81d90>, 'endpoint_components': ParseResult(scheme='https', netloc='cmsweb.cern.ch', path='/phedex/datasvc/json/prod/', params='', query='', fragment=''), 'endpoint': 'https://cmsweb.cern.ch/phedex/datasvc/json/prod/', 'pycurl': True, 'cachepath': '/tmp/ebossini/.wmcore_cache_C94UyA/cmsweb.cern.ch', 'cert': '/tmp/x509up_u3637', 'timeout': 300, 'req_cache_path': '/tmp/ebossini/.wmcore_cache_C94UyA/cmsweb.cern.ch/.cache', 'logger': <logging.Logger object at 0x7fd04ce81250>}, 'logger': <logging.Logger object at 0x7fd04ce81250>, 'cacheduration': 0, 'method': None, 'pycurl': True}):
+	 host: cmsweb.cern.ch, basepath: https://cmsweb.cern.ch/phedex/datasvc/json/prod/ (text/html)
+	 cache: /tmp/ebossini/.wmcore_cache_C94UyA/cmsweb.cern.ch (duration 0 hours, max reuse 24.0 hours)
+INFO 2018-11-29 12:05:45,305: 	 Validating LFN /afs/cern.ch/work/e/ebossini/Analysis/CMSSW_10_2_0_pre6/src/...
+INFO 2018-11-29 12:05:45,305: 	 Refusing to check write permission in /afs/cern.ch/work/e/ebossini/Analysis/CMSSW_10_2_0_pre6/src/, because this is not an allowed LFN for stageout.
+The LFN must start with either '/store/user/<username>/' or '/store/group/<groupname>/' (or '/store/local/<something>/' if publication is off), where username is your username as registered in SiteDB (i.e. the username of your CERN primary account).
+LFN /afs/cern.ch/work/e/ebossini/Analysis/CMSSW_10_2_0_pre6/src/ is not valid.
+DEBUG 2018-11-29 12:10:28,342: 	 Executing command: 'checkwrite'
+DEBUG 2018-11-29 12:10:28,342: 	 Found CRAB cache file /afs/cern.ch/user/e/ebossini/.crab3
+DEBUG 2018-11-29 12:10:28,368: 	 Checking credentials
+DEBUG 2018-11-29 12:10:28,368: 	 Found proxy file /tmp/x509up_u3637
+DEBUG 2018-11-29 12:10:28,368: 	 Getting proxy life time left
+DEBUG 2018-11-29 12:10:30,628: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -timeleft
+ output : 41984
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-29 12:10:32,161: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -actimeleft
+ output : 41982
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-29 12:10:32,162: 	 Proxy valid for 11:39:44 hours
+DEBUG 2018-11-29 12:10:32,283: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=ebossini/CN=717846/CN=Edoardo Bossini
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-29 12:10:32,283: 	 Checking credentials
+DEBUG 2018-11-29 12:10:32,283: 	 Found proxy file /tmp/x509up_u3637
+DEBUG 2018-11-29 12:10:32,283: 	 Getting proxy life time left
+DEBUG 2018-11-29 12:10:33,596: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -timeleft
+ output : 41981
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-29 12:10:35,124: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -actimeleft
+ output : 41979
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-29 12:10:35,125: 	 Proxy valid for 11:39:41 hours
+DEBUG 2018-11-29 12:10:36,559: 	 Executing : 
+ command : env X509_USER_PROXY=/tmp/x509up_u3637 voms-proxy-info -fqan
+ output : /cms/Role=NULL/Capability=NULL
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-29 12:10:36,559: 	 Command use: checkwrite
+DEBUG 2018-11-29 12:10:36,559: 	 Options use: ['--site=T2_CH_CERN', '--lfn=/eos/user/e/ebossini/']
+DEBUG 2018-11-29 12:10:36,559: 	 Instance is None
+DEBUG 2018-11-29 12:10:36,559: 	 Server base url is None
+DEBUG 2018-11-29 12:10:36,563: 	 Service initialised ({'endpoint': 'https://cmsweb.cern.ch/phedex/datasvc/json/prod/', 'key': '/tmp/x509up_u3637', 'maxcachereuse': 24.0, 'cachepath': '/tmp/ebossini/.wmcore_cache_pQhp0h/cmsweb.cern.ch', 'inputdata': {}, 'cert': '/tmp/x509up_u3637', 'timeout': 300, 'service_name': 'PhEDEx', 'requests': {'content_type': 'application/x-www-form-urlencoded', 'cacheduration': 0, 'host': 'https://cmsweb.cern.ch/phedex/datasvc/json/prod/', 'accept_type': 'text/html', 'key': '/tmp/x509up_u3637', 'deleteCacheOnExit': <WMCore.Services.Requests.TempDirectory object at 0x7ff026225e10>, 'endpoint_components': ParseResult(scheme='https', netloc='cmsweb.cern.ch', path='/phedex/datasvc/json/prod/', params='', query='', fragment=''), 'endpoint': 'https://cmsweb.cern.ch/phedex/datasvc/json/prod/', 'pycurl': True, 'cachepath': '/tmp/ebossini/.wmcore_cache_pQhp0h/cmsweb.cern.ch', 'cert': '/tmp/x509up_u3637', 'timeout': 300, 'req_cache_path': '/tmp/ebossini/.wmcore_cache_pQhp0h/cmsweb.cern.ch/.cache', 'logger': <logging.Logger object at 0x7ff026225290>}, 'logger': <logging.Logger object at 0x7ff026225290>, 'cacheduration': 0, 'method': None, 'pycurl': True}):
+	 host: cmsweb.cern.ch, basepath: https://cmsweb.cern.ch/phedex/datasvc/json/prod/ (text/html)
+	 cache: /tmp/ebossini/.wmcore_cache_pQhp0h/cmsweb.cern.ch (duration 0 hours, max reuse 24.0 hours)
+INFO 2018-11-29 12:10:36,563: 	 Validating LFN /eos/user/e/ebossini/...
+INFO 2018-11-29 12:10:36,564: 	 Refusing to check write permission in /eos/user/e/ebossini/, because this is not an allowed LFN for stageout.
+The LFN must start with either '/store/user/<username>/' or '/store/group/<groupname>/' (or '/store/local/<something>/' if publication is off), where username is your username as registered in SiteDB (i.e. the username of your CERN primary account).
+LFN /eos/user/e/ebossini/ is not valid.
+DEBUG 2018-11-29 12:11:24,445: 	 Executing command: 'checkwrite'
+DEBUG 2018-11-29 12:11:24,445: 	 Found CRAB cache file /afs/cern.ch/user/e/ebossini/.crab3
+DEBUG 2018-11-29 12:11:24,457: 	 Checking credentials
+DEBUG 2018-11-29 12:11:24,459: 	 Found proxy file /tmp/x509up_u3637
+DEBUG 2018-11-29 12:11:24,459: 	 Getting proxy life time left
+DEBUG 2018-11-29 12:11:25,568: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -timeleft
+ output : 41929
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-29 12:11:26,579: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -actimeleft
+ output : 41928
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-29 12:11:26,580: 	 Proxy valid for 11:38:49 hours
+DEBUG 2018-11-29 12:11:26,696: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=ebossini/CN=717846/CN=Edoardo Bossini
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-29 12:11:26,697: 	 Checking credentials
+DEBUG 2018-11-29 12:11:26,697: 	 Found proxy file /tmp/x509up_u3637
+DEBUG 2018-11-29 12:11:26,697: 	 Getting proxy life time left
+DEBUG 2018-11-29 12:11:27,608: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -timeleft
+ output : 41927
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-29 12:11:29,023: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -actimeleft
+ output : 41926
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-29 12:11:29,023: 	 Proxy valid for 11:38:47 hours
+DEBUG 2018-11-29 12:11:29,952: 	 Executing : 
+ command : env X509_USER_PROXY=/tmp/x509up_u3637 voms-proxy-info -fqan
+ output : /cms/Role=NULL/Capability=NULL
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-29 12:11:29,954: 	 Command use: checkwrite
+DEBUG 2018-11-29 12:11:29,954: 	 Options use: ['--site=T2_CH_CERN', '--lfn=/store/user/ebossini/']
+DEBUG 2018-11-29 12:11:29,954: 	 Instance is None
+DEBUG 2018-11-29 12:11:29,954: 	 Server base url is None
+DEBUG 2018-11-29 12:11:29,958: 	 Service initialised ({'endpoint': 'https://cmsweb.cern.ch/phedex/datasvc/json/prod/', 'key': '/tmp/x509up_u3637', 'maxcachereuse': 24.0, 'cachepath': '/tmp/ebossini/.wmcore_cache_RnfgM_/cmsweb.cern.ch', 'inputdata': {}, 'cert': '/tmp/x509up_u3637', 'timeout': 300, 'service_name': 'PhEDEx', 'requests': {'content_type': 'application/x-www-form-urlencoded', 'cacheduration': 0, 'host': 'https://cmsweb.cern.ch/phedex/datasvc/json/prod/', 'accept_type': 'text/html', 'key': '/tmp/x509up_u3637', 'deleteCacheOnExit': <WMCore.Services.Requests.TempDirectory object at 0x7f39dc19ee10>, 'endpoint_components': ParseResult(scheme='https', netloc='cmsweb.cern.ch', path='/phedex/datasvc/json/prod/', params='', query='', fragment=''), 'endpoint': 'https://cmsweb.cern.ch/phedex/datasvc/json/prod/', 'pycurl': True, 'cachepath': '/tmp/ebossini/.wmcore_cache_RnfgM_/cmsweb.cern.ch', 'cert': '/tmp/x509up_u3637', 'timeout': 300, 'req_cache_path': '/tmp/ebossini/.wmcore_cache_RnfgM_/cmsweb.cern.ch/.cache', 'logger': <logging.Logger object at 0x7f39dc19e290>}, 'logger': <logging.Logger object at 0x7f39dc19e290>, 'cacheduration': 0, 'method': None, 'pycurl': True}):
+	 host: cmsweb.cern.ch, basepath: https://cmsweb.cern.ch/phedex/datasvc/json/prod/ (text/html)
+	 cache: /tmp/ebossini/.wmcore_cache_RnfgM_/cmsweb.cern.ch (duration 0 hours, max reuse 24.0 hours)
+INFO 2018-11-29 12:11:29,958: 	 Validating LFN /store/user/ebossini/...
+INFO 2018-11-29 12:11:29,959: 	 Retrieving DN from proxy...
+INFO 2018-11-29 12:11:32,132: 	 DN is: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=ebossini/CN=717846/CN=Edoardo Bossini
+INFO 2018-11-29 12:11:32,133: 	 Retrieving username from SiteDB...
+INFO 2018-11-29 12:11:37,005: 	 Username is: ebossini
+INFO 2018-11-29 12:11:37,006: 	 LFN /store/user/ebossini/ is valid.
+INFO 2018-11-29 12:11:37,038: 	 Will use `gfal-copy`, `gfal-rm` commands for checking write permissions
+INFO 2018-11-29 12:11:37,040: 	 Will check write permission in /store/user/ebossini/ on site T2_CH_CERN
+DEBUG 2018-11-29 12:11:37,046: 	 getData: 
+	url: lfn2pfn
+	data: {'node': ['T2_CH_CERN'], 'custodial': 'n', 'lfn': ['/store/user/ebossini//crab3checkwrite_20181129_121137/crab3checkwrite_20181129_121137.tmp'], 'protocol': 'srmv2'}
+INFO 2018-11-29 12:11:38,064: 	 
+Attempting to create (dummy) directory crab3checkwrite_20181129_121137 and copy (dummy) file crab3checkwrite_20181129_121137.tmp to /store/user/ebossini/
+
+INFO 2018-11-29 12:11:38,071: 	 Executing command: which scram >/dev/null 2>&1 && eval `scram unsetenv -sh`; gfal-copy -p -v -t 180 file:///afs/cern.ch/work/e/ebossini/Analysis/CMSSW_10_2_0_pre6/src/crab3checkwrite_20181129_121137.tmp 'gsiftp://eoscmsftp.cern.ch//eos/cms/store/user/ebossini//crab3checkwrite_20181129_121137/crab3checkwrite_20181129_121137.tmp'
+INFO 2018-11-29 12:11:38,072: 	 Please wait...
+INFO 2018-11-29 12:11:38,584: 	 Failed running copy command
+INFO 2018-11-29 12:11:38,584: 	   Stdout:
+    Copying 85 bytes file:///afs/cern.ch/work/e/ebossini/Analysis/CMSSW_10_2_0_pre6/src/crab3checkwrite_20181129_121137.tmp => gsiftp://eoscmsftp.cern.ch//eos/cms/store/user/ebossini//crab3checkwrite_20181129_121137/crab3checkwrite_20181129_121137.tmp
+    event: [1543489898550] BOTH   GFAL2:CORE:COPY	LIST:ENTER	
+    event: [1543489898550] BOTH   GFAL2:CORE:COPY	LIST:ITEM	file:///afs/cern.ch/work/e/ebossini/Analysis/CMSSW_10_2_0_pre6/src/crab3checkwrite_20181129_121137.tmp => gsiftp://eoscmsftp.cern.ch//eos/cms/store/user/ebossini//crab3checkwrite_20181129_121137/crab3checkwrite_20181129_121137.tmp
+    event: [1543489898551] BOTH   GFAL2:CORE:COPY	LIST:EXIT	
+    
+INFO 2018-11-29 12:11:38,584: 	   Stderr:
+    gfal-copy error: 13 (Permission denied) - globus_ftp_client: the server responded with an error 500 mkdir() fail : [ERROR] Error response: Permission denied   
+    
+INFO 2018-11-29 12:11:38,633: 	 
+Checkwrite Result:
+INFO 2018-11-29 12:11:38,633: 	 Error: Unable to write in /store/user/ebossini/ on site T2_CH_CERN
+       You may want to contact the site administrators sending them the 'crab checkwrite' output as printed above.
+INFO 2018-11-29 12:11:38,634: 	 Note: You cannot write to a site if you did not ask permission.
+INFO 2018-11-29 12:11:40,177: 	 Additional diagnostic info for CERN EOS
+== id ==>:
+uid=3637(ebossini) gid=1468(zj) groups=1468(zj),1399(zh),2766(def-cg),1106592460 context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+== voms-proxy-info -all ==>:
+subject   : /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=ebossini/CN=717846/CN=Edoardo Bossini/CN=1049140074
+issuer    : /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=ebossini/CN=717846/CN=Edoardo Bossini
+identity  : /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=ebossini/CN=717846/CN=Edoardo Bossini
+type      : RFC3820 compliant impersonation proxy
+strength  : 2048
+path      : /tmp/x509up_u3637
+timeleft  : 11:38:35
+key usage : Digital Signature, Key Encipherment
+=== VO cms extension information ===
+VO        : cms
+subject   : /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=ebossini/CN=717846/CN=Edoardo Bossini
+issuer    : /DC=ch/DC=cern/OU=computers/CN=voms2.cern.ch
+attribute : /cms/Role=NULL/Capability=NULL
+timeleft  : 11:38:35
+uri       : voms2.cern.ch:15002
+
+== uberftp eoscmsftp.cern.ch pwd ==>:
+220 eoscmsftp10.cern.ch GridFTP Server 13.8 (gcc64, 1536386276-0) [Grid Community Toolkit 6.0] ready.
+230 User ebossini logged in.
+/afs/cern.ch/user/e/ebossini
+
+DEBUG 2018-11-29 12:35:44,911: 	 Executing command: 'checkusername'
+DEBUG 2018-11-29 12:35:44,911: 	 Found CRAB cache file /afs/cern.ch/user/e/ebossini/.crab3
+DEBUG 2018-11-29 12:35:44,941: 	 Checking credentials
+DEBUG 2018-11-29 12:35:44,942: 	 Found proxy file /tmp/x509up_u3637
+DEBUG 2018-11-29 12:35:44,942: 	 Getting proxy life time left
+DEBUG 2018-11-29 12:35:46,157: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -timeleft
+ output : 40468
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-29 12:35:47,286: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -actimeleft
+ output : 40467
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-29 12:35:47,287: 	 Proxy valid for 11:14:28 hours
+DEBUG 2018-11-29 12:35:47,400: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=ebossini/CN=717846/CN=Edoardo Bossini
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-29 12:35:47,401: 	 Checking credentials
+DEBUG 2018-11-29 12:35:47,402: 	 Found proxy file /tmp/x509up_u3637
+DEBUG 2018-11-29 12:35:47,402: 	 Getting proxy life time left
+DEBUG 2018-11-29 12:35:48,412: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -timeleft
+ output : 40466
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-29 12:35:49,429: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -actimeleft
+ output : 40465
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-29 12:35:49,429: 	 Proxy valid for 11:14:26 hours
+DEBUG 2018-11-29 12:35:49,429: 	 Command use: checkusername
+DEBUG 2018-11-29 12:35:49,429: 	 Options use: []
+DEBUG 2018-11-29 12:35:49,429: 	 Instance is None
+DEBUG 2018-11-29 12:35:49,429: 	 Server base url is None
+INFO 2018-11-29 12:35:49,430: 	 Retrieving DN from proxy...
+INFO 2018-11-29 12:35:51,546: 	 DN is: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=ebossini/CN=717846/CN=Edoardo Bossini
+INFO 2018-11-29 12:35:51,547: 	 Retrieving username from SiteDB...
+INFO 2018-11-29 12:35:55,343: 	 Username is: ebossini

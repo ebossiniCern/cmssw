@@ -1,0 +1,37 @@
+DEBUG 2018-11-28 19:18:00,661: 	 Executing command: 'submit'
+DEBUG 2018-11-28 19:18:00,661: 	 Found CRAB cache file /afs/cern.ch/user/e/ebossini/.crab3
+DEBUG 2018-11-28 19:18:00,683: 	 Checking credentials
+DEBUG 2018-11-28 19:18:00,686: 	 Found proxy file /tmp/x509up_u3637
+DEBUG 2018-11-28 19:18:00,686: 	 Getting proxy life time left
+DEBUG 2018-11-28 19:18:01,494: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -timeleft
+ output : 42837
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-28 19:18:02,203: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u3637 -actimeleft
+ output : 42836
+
+ error: 
+ retcode : 0
+DEBUG 2018-11-28 19:18:02,204: 	 Proxy valid for 11:53:57 hours
+INFO 2018-11-28 19:18:02,204: 	 Will use CRAB configuration file crabConfig.py
+DEBUG 2018-11-28 19:18:02,205: 	 Loading CRAB configuration file.
+DEBUG 2018-11-28 19:18:02,211: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+ERROR 2018-11-28 19:18:02,211: 	 Working area '/afs/cern.ch/work/e/ebossini/Analysis/CMSSW_10_2_0_pre6/src/Analyzer/SimpleAnalyzer/test/crab_Diamond_crab_test' already exists 
+Please change the requestName in the config file
+ERROR 2018-11-28 19:18:02,212: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/bin/crab", line 160, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/bin/crab", line 146, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/Commands/submit.py", line 34, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/Commands/SubCommand.py", line 307, in __init__
+    getattr(self.configuration.General, 'requestName', None))
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/ClientUtilities.py", line 404, in createWorkArea
+    raise ConfigException("Working area '%s' already exists \nPlease change the requestName in the config file" % fullpath)
+ConfigException: Working area '/afs/cern.ch/work/e/ebossini/Analysis/CMSSW_10_2_0_pre6/src/Analyzer/SimpleAnalyzer/test/crab_Diamond_crab_test' already exists 
+Please change the requestName in the config file
