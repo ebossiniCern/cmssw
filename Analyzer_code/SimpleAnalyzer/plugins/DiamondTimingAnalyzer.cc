@@ -109,11 +109,9 @@ class DiamondTimingAnalyzer : public edm::one::EDAnalyzer<edm::one::SharedResour
       std::map< ChannelKey, TFileDirectory > channelDir_map_;
 	  
 	  std::vector<TFileDirectory> dir_cyl_V ;	
-	  std::vector<TFileDirectory> dir_cyl_DDTI_V ;
 	  std::vector < std::map<std::pair<int,int>, TFileDirectory > > dir_cyl_TPTI_V ;
 	  std::vector < std::map<int, TFileDirectory > > dir_cyl_L2_3p_Res_V ;
 	  std::vector < std::map<int, TFileDirectory > > dir_cyl_L2Res_V ;
-	  std::vector < std::vector<TFileDirectory> > dir_plane_VV;
 	  
 
       // ---------- global histograms ---------------------------
@@ -129,63 +127,17 @@ class DiamondTimingAnalyzer : public edm::one::EDAnalyzer<edm::one::SharedResour
       std::map< ChannelKey, TH2F*> Pad_tomography_210_Hmap_;
       std::map< ChannelKey, TProfile*> TOTvsT_Profile_map_;
 	  
-      std::map< ChannelKey, TH2F*> TOTvsPlaneMux_Histo_map_;
-      std::map< ChannelKey, TH2F*> TOTvsMH_Histo_map_;
-      std::map< ChannelKey, TH2F*> TOTvsPT_Histo_map_;
-      std::map< ChannelKey, TH2F*> TOTvsTT_Histo_map_;
-	  
-      std::map< ChannelKey, TH1F*> SPCT_Histo_map_;
       std::map< ChannelKey, TH1F*> OOT_Histo_map_;
       std::map< ChannelKey, TH1F*> ValidOOT_Histo_map_;
-      std::map< ChannelKey, TH2F*> TOTvsSPCT_Histo_map_;
 	  
 	  
       // ---------- correlation histograms ---------------------------
 	  
-      TH1F_map Raw_DT_Hmap_;  //sector, channel
-      TH1F_map SPC_DT_Hmap_;  //sector, channel
-      TH2F_map ToT_vs_ToT_Hmap_; //plane, channel
 	  
       std::map< std::pair<ChannelKey,ChannelKey> , TH1F* > Raw_DT_TrackedPlane_Hmap_;  //<<ChannelKey,ChannelKey>,histogram>
       std::map< std::pair<ChannelKey,ChannelKey> , TH1F* > SPC_DT_TrackedPlane_Hmap_;  //<<ChannelKey,ChannelKey>,histogram>
       std::map< std::pair<ChannelKey,ChannelKey> , TH2F* > ToT_vs_ToT_TrackedPlane_Hmap_; //<<ChannelKey,ChannelKey>,histogram>
 	  
-      TH2F_map TimingPixel_mux_220_Hmap_; //arm, plane
-      TH2F_map TimingPixel_mux_210_Hmap_; //arm, plane
-      TH2F_map TimingPixel_Saturated_mux_220_Hmap_; //arm, plane
-      TH2F_map TimingPixel_Saturated_mux_210_Hmap_; //arm, plane
-	  
-      std::map<int, TH2F*>  TimingTrack_Pixel_mux_220_Hmap_; //arm, plane
-      std::map<int, TH2F*>  TimingTrack_Pixel_mux_210_Hmap_; //arm, plane
-      std::map<int, TH2F*>  TimingTrack_Pixel_Saturated_mux_220_Hmap_; //arm, plane
-      std::map<int, TH2F*>  TimingTrack_Pixel_Saturated_mux_210_Hmap_; //arm, plane
-	  
-      TH2F_map MuxSpread_corr_Hmap_; //arm, plane
-	  
-      TH2F_map TrackMuxSpread_corr_Hmap_; //arm
-	  
-	  
-      std::vector < TH2F_map > TimingCorrelation_mux_Hmap_V_; //plane 1, plane 2
-	  
-	  
-	  
-      TH1F_map Plane_Mux_Hmap_; //arm, plane
-      TH1F_map Plane_Mux_validT_Hmap_; //arm, plane
-      TH1F_map Plane_Mux_saturated_Hmap_; //arm, plane
-      TH1F_map Plane_Mux_saturated_validT_Hmap_; //arm, plane
-	  
-      TH1F_map Track_Plane_Mux_validT_Hmap_; //arm, plane
-      TH1F_map Track_Plane_Mux_saturated_validT_Hmap_; //arm, plane
-	  
-	  
-
-      std::map<int, TH1F*> PadInTracks_Reco_Hmap_; //arm	  
-      std::map<int, TH1F*> TimingTracks_Mux_Hmap_; //arm
-      std::map<int, TH1F*> TimingTracks_Mux_saturated_Hmap_; //arm
-	  
-      TH2F_map Pixel_Hit_Hmap_; //arm, station
-      TH2F_map Pixel_Tomography_Hmap_; //arm, station
-      std::map<int, TH2F*>  TimingTrack_Hit_Hmap_; //arm
 	  
       // ---------- pixel mux map ---------------------------
 	   
@@ -193,10 +145,6 @@ class DiamondTimingAnalyzer : public edm::one::EDAnalyzer<edm::one::SharedResour
 	  
       // ---------- channel graphs ---------------------------
 	  
-      std::vector <TGraph*> Raw_resolution_DD_V_;
-      std::vector <TGraph*> SPC_resolution_DD_V_;
-      std::vector <TGraph*> Saturated_percentage_V_;
-      TH1F_map ValidToT_mean_Hmap_; // arm,plane
       std::vector <TH2F_map> Raw_resolution_TP_V_; // sector, <pl 1, pl 2>
       std::vector <TH2F_map> SPC_resolution_TP_V_;
       std::vector <TH2F_map> Correlation_TP_V_;
@@ -267,10 +215,7 @@ DiamondTimingAnalyzer:: DiamondTimingAnalyzer(const edm::ParameterSet& iConfig)
  tokenRecHit_          ( consumes< edm::DetSetVector<CTPPSDiamondRecHit> >      ( iConfig.getParameter<edm::InputTag>( "tagRecHit" ))),
  tokenLocalTrack_          ( consumes< edm::DetSetVector<CTPPSDiamondLocalTrack> >      ( iConfig.getParameter<edm::InputTag>( "tagLocalTrack" ))),
  tokenPixelLocalTrack_      ( consumes< edm::DetSetVector<CTPPSPixelLocalTrack> >      ( iConfig.getParameter<edm::InputTag>( "tagPixelLocalTrack" ))),
- TimingCorrelation_mux_Hmap_V_(2),
- Raw_resolution_DD_V_(2),
- SPC_resolution_DD_V_(2),
- Saturated_percentage_V_(2),
+ 
  Raw_resolution_TP_V_(2),
  SPC_resolution_TP_V_(2),
  Correlation_TP_V_(2),
@@ -359,10 +304,6 @@ DiamondTimingAnalyzer::initHistograms(const CTPPSDiamondDetId& detId)
     ValidT_Histo_name.insert(0, "VALID_RAW_T_Distribution_");
     ValidT_Histo_map_[recHitKey] = channelDir_map_[recHitKey].make<TH1F>(ValidT_Histo_name.c_str(), ValidT_Histo_name.c_str(), 1200, -60, 60 );
     
-	std::string SPCT_Histo_name(chName);
-    SPCT_Histo_name.insert(0, "SinglePadCorr_T_Distribution_");
-    SPCT_Histo_map_[recHitKey] = channelDir_map_[recHitKey].make<TH1F>(SPCT_Histo_name.c_str(), SPCT_Histo_name.c_str(), 1200, -60, 60 );
-    
 	std::string OOT_Histo_name(chName);
     OOT_Histo_name.insert(0, "OOT_Distribution_");
     OOT_Histo_map_[recHitKey] = channelDir_map_[recHitKey].make<TH1F>(OOT_Histo_name.c_str(), OOT_Histo_name.c_str(), 10, -5, 5 );
@@ -381,22 +322,6 @@ DiamondTimingAnalyzer::initHistograms(const CTPPSDiamondDetId& detId)
     TOTvsT_Histo_name.insert(0, "TvsTOT_Distribution_");
     TOTvsT_Histo_map_[recHitKey] = channelDir_map_[recHitKey].make<TH2F>(TOTvsT_Histo_name.c_str(), TOTvsT_Histo_name.c_str(), 240, 0, 60, 450, -20, 25 );
 
-    std::string TOTvsPlaneMux_Histo_name(chName);
-    TOTvsPlaneMux_Histo_name.insert(0, "TOTvsPlaneMux_Distribution_");
-    TOTvsPlaneMux_Histo_map_[recHitKey] = channelDir_map_[recHitKey].make<TH2F>(TOTvsPlaneMux_Histo_name.c_str(), TOTvsPlaneMux_Histo_name.c_str(), 240, 0, 60, 12, 0, 12 );
-
-    std::string TOTvsMH_Histo_name(chName);
-    TOTvsMH_Histo_name.insert(0, "TOTvsMH_Distribution_");
-    TOTvsMH_Histo_map_[recHitKey] = channelDir_map_[recHitKey].make<TH2F>(TOTvsMH_Histo_name.c_str(), TOTvsMH_Histo_name.c_str(), 240, 0, 60, 2, 0, 2 );
-
-    std::string TOTvsPT_Histo_name(chName);
-    TOTvsPT_Histo_name.insert(0, "TOTvsPT_Distribution_");
-    TOTvsPT_Histo_map_[recHitKey] = channelDir_map_[recHitKey].make<TH2F>(TOTvsPT_Histo_name.c_str(), TOTvsPT_Histo_name.c_str(), 240, 0, 60, 20, 0, 20 );
-
-    std::string TOTvsTT_Histo_name(chName);
-    TOTvsTT_Histo_name.insert(0, "TOTvsTT_Distribution_");
-    TOTvsTT_Histo_map_[recHitKey] = channelDir_map_[recHitKey].make<TH2F>(TOTvsTT_Histo_name.c_str(), TOTvsTT_Histo_name.c_str(), 240, 0, 60, 12, 0, 12 );
-
     std::string PadTomo220_Histo_name(chName);
     PadTomo220_Histo_name.insert(0, "Pad tomography 220");
     Pad_tomography_220_Hmap_[recHitKey] = channelDir_map_[recHitKey].make<TH2F>(PadTomo220_Histo_name.c_str(), PadTomo220_Histo_name.c_str(), 1000, -100, 100, 1000, -100, 100);
@@ -404,11 +329,6 @@ DiamondTimingAnalyzer::initHistograms(const CTPPSDiamondDetId& detId)
     std::string PadTomo210_Histo_name(chName);
     PadTomo210_Histo_name.insert(0, "Pad tomography 210");
     Pad_tomography_210_Hmap_[recHitKey] = channelDir_map_[recHitKey].make<TH2F>(PadTomo210_Histo_name.c_str(), PadTomo210_Histo_name.c_str(), 1000, -100, 100, 1000, -100, 100);
-
-
-    std::string TOTvsSPCT_Histo_name(chName);
-    TOTvsSPCT_Histo_name.insert(0, "TOTvsSPCT_Distribution_");
-    TOTvsSPCT_Histo_map_[recHitKey] = channelDir_map_[recHitKey].make<TH2F>(TOTvsSPCT_Histo_name.c_str(), TOTvsSPCT_Histo_name.c_str(), 240, 0, 60, 450, -20, 25 );
 
 
    } 
@@ -456,10 +376,6 @@ DiamondTimingAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& 
 	  for ( const auto& trk : RP_trks ) 
 	  {
 		if ( !trk.isValid() ) continue;
-		//pixelsppslist.push_back( std::pair<const CTPPSPixelLocalTrack*, const CTPPSDetId>(&trk, det_id) );
-		//std::cout << "track found in " << trk.getX0() << " , "<< trk.getY0() << std::endl;
-		
-		Pixel_Hit_Hmap_[ std::make_pair(detId.arm(), detId.station()) ] -> Fill(trk.getX0(),trk.getY0());
 		Pixel_Mux_map_[ std::make_pair(detId.arm(), detId.station()) ]++;
       }	 
 
@@ -490,36 +406,13 @@ if (!(Sector_TBA[0] || Sector_TBA[1])) return;
 
   DiamondDet.ExtractData(iEvent);
  
- ////////////////////////////////////////////////////////////////
-//
-//		Tommography
-//
-/////////////////////////////////////////////////////////////////  
-  
- for (const auto& RP_trks : *pixelLocalTrack) //array of tracks
- {
-      const CTPPSDetId detId( RP_trks.detId() );
-	  
-	//	std::cout << "Tracks in arm " << detId.arm() << ", station " << detId.station() << ", rp " << detId.rp() << std::endl;
-	  for ( const auto& trk : RP_trks ) 
-	  {
-		if ( !trk.isValid() ) continue;
-		if ((Pixel_Mux_map_[ std::make_pair(detId.arm(), detId.station()) ]==1) && (DiamondDet.GetTrackMuxInSector(detId.arm()) > 0) && (Sector_TBA[detId.arm()]))  
-				Pixel_Tomography_Hmap_[ std::make_pair(detId.arm(), detId.station()) ] -> Fill(trk.getX0(),trk.getY0());
-      }	  
-	  
-}  
-  
- 
+
  
 ////////////////////////////////////////////////////////////////
 //
-//		Single pad analisys
+//		control over PCL calibration quality
 //
 /////////////////////////////////////////////////////////////////  
-  
-  
-  
   
   
   for (const auto& recHits : *timingRecHit) //rechits = array of hits in one channel
@@ -544,103 +437,21 @@ if (!(Sector_TBA[0] || Sector_TBA[1])) return;
 	
 
 
-		if (((recHit.getOOTIndex() != (int)((DiamondDet.GetSPCMap())[recHitKey].offset/25) ) &&  valid_OOT_!=-1) ||  recHit.getMultipleHits()) continue;
-					
+		if (((recHit.getOOTIndex() !=0 ) &&  valid_OOT_!=-1) ||  recHit.getMultipleHits()) continue;
+	
+        //T,TOT and OOT for all hits, important for monitoring the calibration	
 		
-		//if (detId.plane()==3) std::cout << "plane "<< detId.plane() << " pad " << detId.channel() << " x value " << recHit.getX() << " y value " << recHit.getY() << std::endl;   
 		T_Histo_map_[recHitKey]-> Fill( recHit.getT() );
 		TOT_Histo_map_[recHitKey]-> Fill( recHit.getToT() );
 		OOT_Histo_map_[recHitKey]-> Fill( recHit.getOOTIndex() );
 		
 		
-		if (DiamondDet.PadActive(detId.arm(), detId.plane(),detId.channel())) // T and Tot present
+		if (DiamondDet.PadActive(detId.arm(), detId.plane(),detId.channel())) // T,TOT and OOT complete hits (T and TOT available), important for monitoring the calibration
 		{
 			ValidTOT_Histo_map_[recHitKey]-> Fill( DiamondDet.GetToT(detId.arm(), detId.plane(),detId.channel()) );
-			SPCT_Histo_map_[recHitKey]-> Fill( DiamondDet.GetTime_SPC(detId.arm(), detId.plane(),detId.channel()));
 			ValidOOT_Histo_map_[recHitKey]-> Fill( DiamondDet.GetPadOOT(detId.arm(), detId.plane(),detId.channel()));
-			TOTvsSPCT_Histo_map_[recHitKey]-> Fill(DiamondDet.GetToT(detId.arm(), detId.plane(),detId.channel()), DiamondDet.GetTime_SPC(detId.arm(),detId.plane(),detId.channel()));
-			TOTvsPlaneMux_Histo_map_[recHitKey]-> Fill(DiamondDet.GetToT(detId.arm(), detId.plane(),detId.channel()), DiamondDet.GetMux(detId.arm(), detId.plane()));
-			TOTvsMH_Histo_map_[recHitKey]-> Fill(DiamondDet.GetToT(detId.arm(), detId.plane(),detId.channel()), DiamondDet.GetMH(detId.arm(), detId.plane(),detId.channel()));
-			TOTvsPT_Histo_map_[recHitKey]-> Fill(DiamondDet.GetToT(detId.arm(), detId.plane(),detId.channel()), Pixel_Mux_map_[std::make_pair(detId.arm(),STATION_220_M_ID)]);
-			TOTvsTT_Histo_map_[recHitKey]-> Fill(DiamondDet.GetToT(detId.arm(), detId.plane(),detId.channel()),  DiamondDet.GetTrackMuxInSector(detId.arm()));
-			
-			//// comment following 2 lines if running on 2017 data samples
-			//TOTvsT_Histo_map_[recHitKey]-> Fill(DiamondDet.GetToT(detId.arm(), detId.plane(),detId.channel()), DiamondDet.GetTime(detId.arm(), detId.plane(),detId.channel()));
-			//ValidT_Histo_map_[recHitKey]-> Fill( DiamondDet.GetTime(detId.arm(), detId.plane(),detId.channel()) );
-
-			////////////////////////////////////////////////////
-			// Run dependent code 2017 start
-			////////////////////////////////////////////////////
-			
-			// standard runs
 			TOTvsT_Histo_map_[recHitKey]-> Fill(DiamondDet.GetToT(detId.arm(), detId.plane(),detId.channel()), DiamondDet.GetTime(detId.arm(), detId.plane(),detId.channel()));
 			ValidT_Histo_map_[recHitKey]-> Fill( DiamondDet.GetTime(detId.arm(), detId.plane(),detId.channel()) );
-			
-			// 5 windows std clock
-			//if (detId.arm()==0 && (detId.plane()==0 || (detId.plane()==1 && detId.channel()>6)))
-			//{
-			//	double patched_T = DiamondDet.GetTime(detId.arm(), detId.plane(),detId.channel()) - 12.5;
-			//	if (patched_T < 0.0) patched_T+=25.0;
-			//	TOTvsT_Histo_map_[recHitKey]-> Fill(DiamondDet.GetToT(detId.arm(), detId.plane(),detId.channel()), patched_T);
-			//	ValidT_Histo_map_[recHitKey]-> Fill( patched_T );
-			//}
-			//else
-			//{
-			//	ValidT_Histo_map_[recHitKey]-> Fill( DiamondDet.GetTime(detId.arm(), detId.plane(),detId.channel()) );
-			//	TOTvsT_Histo_map_[recHitKey]-> Fill(DiamondDet.GetToT(detId.arm(), detId.plane(),detId.channel()), DiamondDet.GetTime(detId.arm(), detId.plane(),detId.channel()));
-			//}
-			
-			
-			
-			// //300122
-			//if (detId.arm()==0 && (detId.plane()==0 || detId.plane()==2 || detId.channel()>6))
-			//{
-			//	double patched_T = DiamondDet.GetTime(detId.arm(), detId.plane(),detId.channel()) - 12.5;
-			//	if (patched_T < 0.0) patched_T+=25.0;
-			//	TOTvsT_Histo_map_[recHitKey]-> Fill(DiamondDet.GetToT(detId.arm(), detId.plane(),detId.channel()), patched_T);
-			//	ValidT_Histo_map_[recHitKey]-> Fill( patched_T );
-			//}
-			//else
-			//{
-			//	ValidT_Histo_map_[recHitKey]-> Fill( DiamondDet.GetTime(detId.arm(), detId.plane(),detId.channel()) );
-			//	TOTvsT_Histo_map_[recHitKey]-> Fill(DiamondDet.GetToT(detId.arm(), detId.plane(),detId.channel()), DiamondDet.GetTime(detId.arm(), detId.plane(),detId.channel()));
-			//}
-			
-			 //300088
-			//if (detId.arm()==0 && (detId.plane()==0 || detId.plane()==2 || detId.channel()>6))
-			//{
-			//	double patched_T = DiamondDet.GetTime(detId.arm(), detId.plane(),detId.channel()) - 12.5;
-			//	if (patched_T < 0.0) patched_T+=25.0;
-			//	TOTvsT_Histo_map_[recHitKey]-> Fill(DiamondDet.GetToT(detId.arm(), detId.plane(),detId.channel()), patched_T);
-			//	ValidT_Histo_map_[recHitKey]-> Fill( patched_T );
-			//}
-			//else
-			//{
-			//	ValidT_Histo_map_[recHitKey]-> Fill( DiamondDet.GetTime(detId.arm(), detId.plane(),detId.channel()) );
-			//	TOTvsT_Histo_map_[recHitKey]-> Fill(DiamondDet.GetToT(detId.arm(), detId.plane(),detId.channel()), DiamondDet.GetTime(detId.arm(), detId.plane(),detId.channel()));
-			//}
-			
-			
-			//// 300155
-			//if (detId.arm()==1 && ((detId.plane()==1 && detId.channel()==6) || (detId.plane()==3 && detId.channel()<7)))
-			//{
-			//	double patched_T = DiamondDet.GetTime(detId.arm(), detId.plane(),detId.channel()) - 12.5;
-			//	if (patched_T < 0.0) patched_T+=25.0;
-			//	TOTvsT_Histo_map_[recHitKey]-> Fill(DiamondDet.GetToT(detId.arm(), detId.plane(),detId.channel()), patched_T);
-			//	ValidT_Histo_map_[recHitKey]-> Fill( patched_T );
-			//}
-			//else
-			//{
-			//	ValidT_Histo_map_[recHitKey]-> Fill( DiamondDet.GetTime(detId.arm(), detId.plane(),detId.channel()) );
-			//	TOTvsT_Histo_map_[recHitKey]-> Fill(DiamondDet.GetToT(detId.arm(), detId.plane(),detId.channel()), DiamondDet.GetTime(detId.arm(), detId.plane(),detId.channel()));
-			//}
-			
-			
-			////////////////////////////////////////////////////
-			// Run dependent code 2017 end
-			////////////////////////////////////////////////////
-			
-			
 		}
     }
   }
@@ -649,120 +460,11 @@ if (!(Sector_TBA[0] || Sector_TBA[1])) return;
 
 ////////////////////////////////////////////////////////////////
 //
-//		Multiplicity correlation for all events
+//		RESOLUTION STUDIES
 //
 ///////////////////////////////////////////////////////////////// 
-
-
-
-   // plane multiplicity correlation
-for (int sec_number=0; sec_number < MAX_SECTOR_NUMBER; sec_number++)
-{
-	
-	if (!(Sector_TBA[sec_number])) continue;
-
-  	for  (int pl_number=0; pl_number < PLANES_X_DETECTOR; pl_number++)
-	{
-		for  (int pl_number_2 = pl_number+1; pl_number_2 < PLANES_X_DETECTOR; pl_number_2++)
-			
-		{
-			//multiplicity corralation between planes (all hits)
-			TimingCorrelation_mux_Hmap_V_[sec_number][ std::make_pair(pl_number,pl_number_2) ]->Fill(DiamondDet.GetMux(sec_number,pl_number),DiamondDet.GetMux(sec_number,pl_number_2));
-		}
-		// multiplicity distribution (all hits)
-		Plane_Mux_Hmap_[ std::make_pair(sec_number,pl_number) ] -> Fill(DiamondDet.GetMux(sec_number,pl_number));
-		// multiplicity distribution (valid time hits)
-		Plane_Mux_validT_Hmap_[ std::make_pair(sec_number,pl_number) ] -> Fill(DiamondDet.GetMuxValidT(sec_number,pl_number));
-		// hits multiplicity (valid T) Vs Spread (valid T)
-		MuxSpread_corr_Hmap_[ std::make_pair(sec_number,pl_number) ] -> Fill(DiamondDet.GetMuxValidT(sec_number,pl_number),DiamondDet.GetSpread(sec_number,pl_number));
-		// hits multiplicty (valid T) Vs 220 pixel tracks multiplicity
-		TimingPixel_mux_220_Hmap_[std::make_pair(sec_number,pl_number) ]-> Fill(DiamondDet.GetMuxValidT(sec_number,pl_number),Pixel_Mux_map_[std::make_pair(sec_number,STATION_220_M_ID)]); 
-		// hits multiplicty (valid T) Vs 210 pixel tracks multiplicity
-		TimingPixel_mux_210_Hmap_[std::make_pair(sec_number,pl_number) ]-> Fill(DiamondDet.GetMuxValidT(sec_number,pl_number),Pixel_Mux_map_[std::make_pair(sec_number,STATION_210_M_ID)]);
-        // hits multiplicty (in tracks) Vs Spread (in tracks) 		
-		TrackMuxSpread_corr_Hmap_[ std::make_pair(sec_number,pl_number) ] -> Fill(DiamondDet.GetMuxInTrack(sec_number,pl_number),DiamondDet.GetTrackSpread(sec_number,pl_number));
-        // multiplicity distribution (hits contained in tracks)		
-		Track_Plane_Mux_validT_Hmap_[ std::make_pair(sec_number,pl_number) ] -> Fill(DiamondDet.GetMuxInTrack(sec_number,pl_number));
-			
-	}	
-	
-		
-	TimingTracks_Mux_Hmap_[sec_number]-> Fill(DiamondDet.GetTrackMuxInSector(sec_number));
-	TimingTrack_Pixel_mux_220_Hmap_[sec_number]-> Fill(DiamondDet.GetTrackMuxInSector(sec_number),Pixel_Mux_map_[std::make_pair(sec_number,STATION_220_M_ID)]); 
-	TimingTrack_Pixel_mux_210_Hmap_[sec_number]-> Fill(DiamondDet.GetTrackMuxInSector(sec_number),Pixel_Mux_map_[std::make_pair(sec_number,STATION_210_M_ID)]); 
 	
 	
-	
-	if (DiamondDet.SecIsSaturated(sec_number))
-	{
-		for  (int pl_number=0; pl_number < PLANES_X_DETECTOR; pl_number++)
-			{	
-		
-				Plane_Mux_saturated_Hmap_[ std::make_pair(sec_number,pl_number) ] -> Fill(DiamondDet.GetMux(sec_number,pl_number));
-				Plane_Mux_saturated_validT_Hmap_[ std::make_pair(sec_number,pl_number) ] -> Fill(DiamondDet.GetMuxValidT(sec_number,pl_number));
-				Track_Plane_Mux_saturated_validT_Hmap_[ std::make_pair(sec_number,pl_number) ] -> Fill(DiamondDet.GetMuxInTrack(sec_number,pl_number));
-				TimingPixel_Saturated_mux_220_Hmap_[std::make_pair(sec_number,pl_number) ]-> Fill(DiamondDet.GetMuxValidT(sec_number,pl_number),Pixel_Mux_map_[std::make_pair(sec_number,STATION_220_M_ID)]); 
-				TimingPixel_Saturated_mux_210_Hmap_[std::make_pair(sec_number,pl_number) ]-> Fill(DiamondDet.GetMuxValidT(sec_number,pl_number),Pixel_Mux_map_[std::make_pair(sec_number,STATION_210_M_ID)]); 
-					
-			}	
-			
-		TimingTracks_Mux_saturated_Hmap_[sec_number]-> Fill(DiamondDet.GetTrackMuxInSector(sec_number));
-		TimingTrack_Pixel_Saturated_mux_220_Hmap_[sec_number]-> Fill(DiamondDet.GetTrackMuxInSector(sec_number),Pixel_Mux_map_[std::make_pair(sec_number,STATION_220_M_ID)]); 
-		TimingTrack_Pixel_Saturated_mux_210_Hmap_[sec_number]-> Fill(DiamondDet.GetTrackMuxInSector(sec_number),Pixel_Mux_map_[std::make_pair(sec_number,STATION_210_M_ID)]);
-	}
-}
-
-for (const auto& LocalTrack_mapIter : DiamondDet.GetDiamondTrack_map())
-{
-	int sec_number = LocalTrack_mapIter.first.getZ0() > 0.0 ? SECTOR_45_ID : SECTOR_56_ID;
-	
-	
-	if (!(Sector_TBA[sec_number])) continue;
-
-	PadInTracks_Reco_Hmap_[sec_number]->Fill(LocalTrack_mapIter.second.size());
-	TimingTrack_Hit_Hmap_[ sec_number ]-> Fill (LocalTrack_mapIter.first.getX0(),LocalTrack_mapIter.first.getY0());
-	// start TBR
-	/*if ((LocalTrack_mapIter.first.getX0()<6.0) && (std::abs(LocalTrack_mapIter.first.getY0())>0.2))
-	{
-		std::cout << "2017 anoumaluos track" << std::endl;
-		DiamondDet.DumpEvent();
-	}*/
-}
-
-////////////////////////////////////////////////////////////////
-//
-//		TIMING STUDIES
-//
-///////////////////////////////////////////////////////////////// 
-
-  
-	// double diamond analysis method
-	
-for (int sec_number=0; sec_number < MAX_SECTOR_NUMBER; sec_number++)
-{		
-	
-	if (!(Sector_TBA[sec_number])) continue;
-
-	for  (int ch_number=0; ch_number < CHANNELS_X_PLANE; ch_number++)
-	{
-		if (DiamondDet.PairActive(sec_number, PLANE_2_ID,ch_number,PLANE_3_ID,ch_number))
-		{	 
-			Raw_DT_Hmap_[std::make_pair(sec_number,ch_number)]->Fill(DiamondDet.GetTime(sec_number,PLANE_2_ID,ch_number)-DiamondDet.GetTime(sec_number,PLANE_3_ID,ch_number));
-			
-			
-			
-			double TimeA_corr=DiamondDet.GetTime_SPC(sec_number, PLANE_2_ID,ch_number);
-			double TimeB_corr=DiamondDet.GetTime_SPC(sec_number, PLANE_3_ID,ch_number);
-			
-			SPC_DT_Hmap_[std::make_pair(sec_number,ch_number)]->Fill(TimeA_corr-TimeB_corr);
-			ToT_vs_ToT_Hmap_[std::make_pair(sec_number,ch_number)]->Fill(DiamondDet.GetToT(sec_number, PLANE_2_ID,ch_number),DiamondDet.GetToT(sec_number,PLANE_3_ID,ch_number));
-	
-		}
-	}
-}	
-	
-//typedef std::map< CTPPSDiamondLocalTrack , std::pair<ChannelKey,CTPPSDiamondRecHit> >   LocalTrack_map;
-//std::vector<TH1F_map> Raw_DT_TrackedPlane_Hmap_;  //<<ChannelKey1,ChannelKey>,histogram>
 
 // loop on all tracks --> generation of time resolution timing track based
 for (const auto& LocalTrack_mapIter : DiamondDet.GetDiamondTrack_map()) // loop on predigested tracks
@@ -828,14 +530,6 @@ for (const auto& LocalTrack_mapIter : DiamondDet.GetDiamondTrack_map()) // loop 
 
 
 
-////////////////////////////////////////////////////////////////
-//
-//		TRACK TIMING STUDIES
-//
-///////////////////////////////////////////////////////////////// 
-
-//std::cout << "start new block" << std::endl;
-
 
 ////////////////////////////////////////////////////////////////
 //
@@ -863,7 +557,7 @@ for (const auto& LocalTrack_mapIter : DiamondDet.GetDiamondTrack_map()) // loop 
 	
 	std::vector<ChannelKey>  hit_selected(4);
 	 
-	int NumPlanes=0;
+	//int NumPlanes=0;
 	//if (DiamondDet.GetMuxInTrack(sec_number,PLANE_0_ID)>0) NumPlanes++;
 	//if (DiamondDet.GetMuxInTrack(sec_number,PLANE_1_ID)>0) NumPlanes++;
 	//if (DiamondDet.GetMuxInTrack(sec_number,PLANE_2_ID)>0) NumPlanes++;
@@ -1056,8 +750,6 @@ for (const auto& LocalTrack_mapIter : DiamondDet.GetDiamondTrack_map()) // loop 
 	
 	}
 	
-	
-				//std::cout << "timing saved" << std::endl;
 
 
 	for (int pl_mark = 0 ; pl_mark < PLANES_X_DETECTOR; pl_mark++)
@@ -1126,13 +818,6 @@ for (const auto& LocalTrack_mapIter : DiamondDet.GetDiamondTrack_map()) // loop 
 	}
 	
 }
-//std::cout << "end new block" << std::endl;
-
-
-//for (const auto& LocalTrack_mapIter : DiamondDet.GetDiamondTrack_map(sec_number))
-//{
-//
-//}	
 		
 
 }
@@ -1146,9 +831,6 @@ DiamondTimingAnalyzer::beginJob()
 	
 	dir_cyl_V.push_back(fs_->mkdir( "CTPPS/TimingDiamond/sector 45/station 220cyl/cyl_hr" ));
 	dir_cyl_V.push_back(fs_->mkdir( "CTPPS/TimingDiamond/sector 56/station 220cyl/cyl_hr" ));
-	
-	dir_cyl_DDTI_V.push_back(fs_->mkdir( "CTPPS/TimingDiamond/sector 45/station 220cyl/cyl_hr/DDTimeInfo" ));
-	dir_cyl_DDTI_V.push_back(fs_->mkdir( "CTPPS/TimingDiamond/sector 56/station 220cyl/cyl_hr/DDTimeInfo" ));
 
 	dir_cyl_TPTI_V.resize(2);	
 	dir_cyl_TPTI_V[0][std::make_pair(0,1)]=fs_->mkdir( "CTPPS/TimingDiamond/sector 45/station 220cyl/cyl_hr/TPTimeInfo/plane0_1" );
@@ -1183,81 +865,16 @@ DiamondTimingAnalyzer::beginJob()
 	dir_cyl_L2_3p_Res_V[1][1]=fs_->mkdir( "CTPPS/TimingDiamond/sector 56/station 220cyl/cyl_hr/L2_3p_Res/plane1" );
 	dir_cyl_L2_3p_Res_V[1][2]=fs_->mkdir( "CTPPS/TimingDiamond/sector 56/station 220cyl/cyl_hr/L2_3p_Res/plane2" );
 	dir_cyl_L2_3p_Res_V[1][3]=fs_->mkdir( "CTPPS/TimingDiamond/sector 56/station 220cyl/cyl_hr/L2_3p_Res/plane3" );
-	
-	
-	
-	
-	dir_plane_VV.push_back(std::vector<TFileDirectory>());
-	dir_plane_VV.push_back(std::vector<TFileDirectory>());
-	dir_plane_VV[0].push_back(fs_->mkdir( "CTPPS/TimingDiamond/sector 45/station 220cyl/cyl_hr/plane 0" ));
-	dir_plane_VV[0].push_back(fs_->mkdir( "CTPPS/TimingDiamond/sector 45/station 220cyl/cyl_hr/plane 1" ));
-	dir_plane_VV[0].push_back(fs_->mkdir( "CTPPS/TimingDiamond/sector 45/station 220cyl/cyl_hr/plane 2" ));
-	dir_plane_VV[0].push_back(fs_->mkdir( "CTPPS/TimingDiamond/sector 45/station 220cyl/cyl_hr/plane 3" ));
-	dir_plane_VV[1].push_back(fs_->mkdir( "CTPPS/TimingDiamond/sector 56/station 220cyl/cyl_hr/plane 0" ));
-	dir_plane_VV[1].push_back(fs_->mkdir( "CTPPS/TimingDiamond/sector 56/station 220cyl/cyl_hr/plane 1" ));
-	dir_plane_VV[1].push_back(fs_->mkdir( "CTPPS/TimingDiamond/sector 56/station 220cyl/cyl_hr/plane 2" ));
-	dir_plane_VV[1].push_back(fs_->mkdir( "CTPPS/TimingDiamond/sector 56/station 220cyl/cyl_hr/plane 3" ));
 
-	for (int sec_number=0; sec_number < MAX_SECTOR_NUMBER; sec_number++)
-	{		 	
-		for  (int ch_number=0; ch_number < CHANNELS_X_PLANE; ch_number++)
-		{
-			
-	
-			std::string Raw_DT_name("RAW_DeltaT_DD_sector_"+std::to_string(sec_number)+"_channel_"+std::to_string(ch_number));
-			std::string SPC_DT_name("SPC_DeltaT_DD_sector_"+std::to_string(sec_number)+"_channel_"+std::to_string(ch_number));
-			std::string ToT_vs_ToT_name("TOT_vs_TOT_DD_sector_"+std::to_string(sec_number)+"_channel_"+std::to_string(ch_number));
-			
-			Raw_DT_Hmap_[ std::make_pair(sec_number,ch_number) ] = dir_cyl_DDTI_V[sec_number].make<TH1F>(Raw_DT_name.c_str(), Raw_DT_name.c_str(), 1200, -60, 60 );
-			SPC_DT_Hmap_[ std::make_pair(sec_number,ch_number) ] = dir_cyl_DDTI_V[sec_number].make<TH1F>(SPC_DT_name.c_str(), SPC_DT_name.c_str(), 1200, -60, 60 );
-			ToT_vs_ToT_Hmap_[ std::make_pair(sec_number,ch_number) ] = dir_cyl_DDTI_V[sec_number].make<TH2F>(ToT_vs_ToT_name.c_str(), ToT_vs_ToT_name.c_str(), 100, 5, 25, 100, 5, 25 );	
-			
-		}
-	}	
 	
 	for (int sec_number=0; sec_number < MAX_SECTOR_NUMBER; sec_number++)
 	{	
 	
 		for  (int pl_number=0; pl_number < PLANES_X_DETECTOR; pl_number++)
 		{
-		 
-			std::string Plane_Mux_Hname("PlaneMux_sSector_"+std::to_string(sec_number)+"_plane_"+std::to_string(pl_number));
-			Plane_Mux_Hmap_[ std::make_pair(sec_number,pl_number) ] = dir_plane_VV[sec_number][pl_number].make<TH1F>(Plane_Mux_Hname.c_str(), Plane_Mux_Hname.c_str(), 16, 0, 16 );
-			Plane_Mux_Hname = "PlaneMuxValidT_sector_"+std::to_string(sec_number)+"_plane_"+std::to_string(pl_number);
-			Plane_Mux_validT_Hmap_[ std::make_pair(sec_number,pl_number) ] = dir_plane_VV[sec_number][pl_number].make<TH1F>(Plane_Mux_Hname.c_str(), Plane_Mux_Hname.c_str(), 16, 0, 16 );
-			Plane_Mux_Hname = "PlaneMuxSaturated_sector_"+std::to_string(sec_number)+"_plane_"+std::to_string(pl_number);
-			Plane_Mux_saturated_Hmap_[ std::make_pair(sec_number,pl_number) ] = dir_plane_VV[sec_number][pl_number].make<TH1F>(Plane_Mux_Hname.c_str(), Plane_Mux_Hname.c_str(), 16, 0, 16 );
-			Plane_Mux_Hname = "PlaneMuxSaturatedValidT_sector_"+std::to_string(sec_number)+"_plane_"+std::to_string(pl_number);
-			Plane_Mux_saturated_validT_Hmap_[ std::make_pair(sec_number,pl_number) ] = dir_plane_VV[sec_number][pl_number].make<TH1F>(Plane_Mux_Hname.c_str(), Plane_Mux_Hname.c_str(), 16, 0, 16 );
-			
-			
-			Plane_Mux_Hname = "Track_PlaneMuxValidT_sector_"+std::to_string(sec_number)+"_plane_"+std::to_string(pl_number);
-			Track_Plane_Mux_validT_Hmap_[ std::make_pair(sec_number,pl_number) ] = dir_plane_VV[sec_number][pl_number].make<TH1F>(Plane_Mux_Hname.c_str(), Plane_Mux_Hname.c_str(), 16, 0, 16 );
-			Plane_Mux_Hname = "Track_PlaneMuxSaturatedValidT_sector_"+std::to_string(sec_number)+"_plane_"+std::to_string(pl_number);
-			Track_Plane_Mux_saturated_validT_Hmap_[ std::make_pair(sec_number,pl_number) ] = dir_plane_VV[sec_number][pl_number].make<TH1F>(Plane_Mux_Hname.c_str(), Plane_Mux_Hname.c_str(), 16, 0, 16 );
-			
-			
-			std::string TP_Mux_Hname("Diamond-Pixel 220 mux correlation sector "+std::to_string(sec_number)+" plane "+std::to_string(pl_number));
-			TimingPixel_mux_220_Hmap_[ std::make_pair(sec_number,pl_number) ] = dir_plane_VV[sec_number][pl_number].make<TH2F>(TP_Mux_Hname.c_str(), TP_Mux_Hname.c_str(), 12, 0, 12, 20, 0, 20 ); 
-			TP_Mux_Hname = "Diamond-Pixel 210 mux correlation sector "+std::to_string(sec_number)+" plane "+std::to_string(pl_number); 
-			TimingPixel_mux_210_Hmap_[ std::make_pair(sec_number,pl_number) ] = dir_plane_VV[sec_number][pl_number].make<TH2F>(TP_Mux_Hname.c_str(), TP_Mux_Hname.c_str(), 12, 0, 12, 20, 0, 20 );
-			TP_Mux_Hname = "Diamond-Pixel 220 Saturated mux correlation sector "+std::to_string(sec_number)+" plane "+std::to_string(pl_number);
-			TimingPixel_Saturated_mux_220_Hmap_[ std::make_pair(sec_number,pl_number) ] = dir_plane_VV[sec_number][pl_number].make<TH2F>(TP_Mux_Hname.c_str(), TP_Mux_Hname.c_str(), 12, 0, 12, 20, 0, 20 ); 
-			TP_Mux_Hname = "Diamond-Pixel 210 Saturated mux correlation sector "+std::to_string(sec_number)+" plane "+std::to_string(pl_number);
-			TimingPixel_Saturated_mux_210_Hmap_[ std::make_pair(sec_number,pl_number) ] = dir_plane_VV[sec_number][pl_number].make<TH2F>(TP_Mux_Hname.c_str(), TP_Mux_Hname.c_str(), 12, 0, 12, 20, 0, 20 ); 
-			
-		
-			std::string MS_Corr_Hname = "Mux-Spread correlation sector "+std::to_string(sec_number)+" plane "+std::to_string(pl_number);
-			MuxSpread_corr_Hmap_[ std::make_pair(sec_number,pl_number) ] = dir_plane_VV[sec_number][pl_number].make<TH2F>(MS_Corr_Hname.c_str(), MS_Corr_Hname.c_str(), 12, 0, 12, 12, 0, 12 ); 
-			MS_Corr_Hname="Tracks Mux-Spread correlation sector" + std::to_string(sec_number)+" plane "+std::to_string(pl_number);		
-			TrackMuxSpread_corr_Hmap_[ std::make_pair(sec_number,pl_number) ] = dir_plane_VV[sec_number][pl_number].make<TH2F>(MS_Corr_Hname.c_str(), MS_Corr_Hname.c_str(), 12, 0, 12, 13, 0, 12 ); 	
-			
-			std::string Hname = "Valid TOT mean sector "+std::to_string(sec_number)+" plane "+std::to_string(pl_number);
-			ValidToT_mean_Hmap_[ std::make_pair(sec_number,pl_number)] = dir_plane_VV[sec_number][pl_number].make<TH1F>(Hname.c_str(), Hname.c_str(), 12, 0, 12);
-			
 		
 			Resolution_L2_graph_map_[ std::make_pair(sec_number,pl_number)] = dir_cyl_L2Res_V[sec_number][pl_number].make<TGraph>(12);
-			Hname="L2 resolution sector "+std::to_string(sec_number)+" plane "+std::to_string(pl_number);
+			std::string Hname="L2 resolution sector "+std::to_string(sec_number)+" plane "+std::to_string(pl_number);
 			Resolution_L2_graph_map_[ std::make_pair(sec_number,pl_number)]  -> SetNameTitle(Hname.c_str(),Hname.c_str());
 		
 			Resolution_L2_3p_graph_map_[ std::make_pair(sec_number,pl_number)] = dir_cyl_L2_3p_Res_V[sec_number][pl_number].make<TGraph>(12);
@@ -1277,11 +894,6 @@ DiamondTimingAnalyzer::beginJob()
 		
 			for (int pl_number_2 = pl_number+1; pl_number_2 < PLANES_X_DETECTOR; pl_number_2++)
 			{
-			
-				Hname = "Diamond plane mux correlation sector "+std::to_string(sec_number)+" plane "+std::to_string(pl_number)+ "_" + std::to_string(pl_number_2);
-				TimingCorrelation_mux_Hmap_V_[sec_number][ std::make_pair(pl_number,pl_number_2) ] = dir_cyl_V[sec_number].make<TH2F>(Hname.c_str(), Hname.c_str(), 12, 0, 12, 12, 0, 12 ); 
-				
-
 				Hname = "Raw_resolution_TP_sec_"+std::to_string(sec_number)+"_plane_"+std::to_string(pl_number)+ "_" + std::to_string(pl_number_2);	
 				Raw_resolution_TP_V_[sec_number][std::make_pair(pl_number,pl_number_2)] = dir_cyl_TPTI_V[sec_number][std::make_pair(pl_number,pl_number_2)].make<TH2F>(Hname.c_str(), Hname.c_str(), 12, 0, 12,12, 0, 12);
 				
@@ -1298,58 +910,10 @@ DiamondTimingAnalyzer::beginJob()
 	
 	for (int sec_number=0; sec_number < MAX_SECTOR_NUMBER; sec_number++)
 	{
-	
-	    std::string name="Pixel hit map sector "+std::to_string(sec_number)+" station 210";
-		Pixel_Hit_Hmap_[ std::make_pair(sec_number, STATION_210_M_ID) ] = dir_cyl_V[sec_number].make<TH2F>(name.c_str(), name.c_str(), 1000, -100, 100, 1000, -100, 100);
-	    name="Pixel hit map sector "+std::to_string(sec_number)+" station 220";
-		Pixel_Hit_Hmap_[ std::make_pair(sec_number, STATION_220_M_ID) ] = dir_cyl_V[sec_number].make<TH2F>(name.c_str(), name.c_str(), 1000, -100, 100, 1000, -100, 100);
 		
-		
-	
-	    name="Tomography sector "+std::to_string(sec_number)+" station 210";
-		Pixel_Tomography_Hmap_[ std::make_pair(sec_number, STATION_210_M_ID) ] = dir_cyl_V[sec_number].make<TH2F>(name.c_str(), name.c_str(), 1000, -100, 100, 1000, -100, 100);
-	    name="Tomography sector "+std::to_string(sec_number)+" station 220";
-		Pixel_Tomography_Hmap_[ std::make_pair(sec_number, STATION_220_M_ID) ] = dir_cyl_V[sec_number].make<TH2F>(name.c_str(), name.c_str(), 1000, -100, 100, 1000, -100, 100);
-		
-		
-		
-		Raw_resolution_DD_V_[sec_number] = dir_cyl_DDTI_V[sec_number].make<TGraph>(12);
-		name="Raw_resolution_DD_sec_"+std::to_string(sec_number);
-		Raw_resolution_DD_V_[sec_number] -> SetNameTitle(name.c_str(),name.c_str());
-		
-		SPC_resolution_DD_V_[sec_number] = dir_cyl_DDTI_V[sec_number].make<TGraph>(12);
-		name="SPC_resolution_DD_sec_"+std::to_string(sec_number);
-		SPC_resolution_DD_V_[sec_number] -> SetNameTitle(name.c_str(),name.c_str());
-		
-		Saturated_percentage_V_[sec_number] = dir_cyl_V[sec_number].make<TGraph>(12);
-		name="Saturated_percentage_sec_"+std::to_string(sec_number);
-		Saturated_percentage_V_[sec_number] -> SetNameTitle(name.c_str(),name.c_str());
 
-	    name=" Reconstructed Constituent Pad Mux sector" + std::to_string(sec_number);		
-		PadInTracks_Reco_Hmap_[sec_number] = dir_cyl_V[sec_number].make<TH1F>(name.c_str(), name.c_str(), 12, 0, 12);
-	    name="Timing tracks mux sector" + std::to_string(sec_number);		
-		TimingTracks_Mux_Hmap_[sec_number] = dir_cyl_V[sec_number].make<TH1F>(name.c_str(), name.c_str(), 12, 0, 12);
-	    name="Timing tracks saturated mux sector" + std::to_string(sec_number);		
-		TimingTracks_Mux_saturated_Hmap_[sec_number] = dir_cyl_V[sec_number].make<TH1F>(name.c_str(), name.c_str(), 12, 0, 12);  
-
-
-			
-		name="DiamondTracks-Pixel 220 mux correlation sector "+std::to_string(sec_number);
-		TimingTrack_Pixel_mux_220_Hmap_[sec_number] = dir_cyl_V[sec_number].make<TH2F>(name.c_str(), name.c_str(), 12, 0, 12, 20, 0, 20 ); 
-		name="DiamondTracks-Pixel 210 mux correlation sector "+std::to_string(sec_number); 
-		TimingTrack_Pixel_mux_210_Hmap_[sec_number] = dir_cyl_V[sec_number].make<TH2F>(name.c_str(), name.c_str(), 12, 0, 12, 20, 0, 20 );
-		name="DiamondTracks-Pixel 220 Saturated mux correlation sector "+std::to_string(sec_number);
-		TimingTrack_Pixel_Saturated_mux_220_Hmap_[sec_number] = dir_cyl_V[sec_number].make<TH2F>(name.c_str(), name.c_str(), 12, 0, 12, 20, 0, 20 ); 
-		name="DiamondTracks-Pixel 210 Saturated mux correlation sector "+std::to_string(sec_number);
-		TimingTrack_Pixel_Saturated_mux_210_Hmap_[sec_number] = dir_cyl_V[sec_number].make<TH2F>(name.c_str(), name.c_str(), 12, 0, 12, 20, 0, 20 );	
 		
-	    name="Timing track hit map sector "+std::to_string(sec_number);
-		TimingTrack_Hit_Hmap_[ sec_number ] = dir_cyl_V[sec_number].make<TH2F>(name.c_str(), name.c_str(), 100, 0, 20, 10, -1.05, 0.95);	
-		
-		
-		
-		
-	    name="Timing track time RAW sector "+std::to_string(sec_number);
+	    std::string name="Timing track time RAW sector "+std::to_string(sec_number);
 		Tracks_time_RAW_histo_V_[ sec_number ] = dir_cyl_V[sec_number].make<TH1F>(name.c_str(), name.c_str(), 1200, -60, 60);	
 	    name="Timing track time SPC sector "+std::to_string(sec_number);
 		Tracks_time_SPC_histo_V_[ sec_number ] = dir_cyl_V[sec_number].make<TH1F>(name.c_str(), name.c_str(), 1200, -60, 60);			
@@ -1362,10 +926,7 @@ DiamondTimingAnalyzer::beginJob()
 		name="Timing track time SPC Vs LS sector "+std::to_string(sec_number);
 		Tracks_time_SPC_LS_Histo_V_[ sec_number ] = dir_cyl_V[sec_number].make<TH2F>(name.c_str(), name.c_str(), 4000, 0, 4000, 500, -5 , 5 );
 					
-		
-		
-	  				
-		
+
 	}
 	
 	
@@ -1399,56 +960,7 @@ DiamondTimingAnalyzer::endJob()
 	
 	
 	std::cout << "Starting end job task" << std::endl;
-	int X_sat_start = ToT_vs_ToT_Hmap_[std::make_pair(0,0)]-> GetXaxis()->FindBin(15);
-	int X_sat_stop = ToT_vs_ToT_Hmap_[std::make_pair(0,0)]-> GetNbinsX();
-	int Y_sat_start = ToT_vs_ToT_Hmap_[std::make_pair(0,0)]-> GetYaxis()->FindBin(15);
-	int Y_sat_stop = ToT_vs_ToT_Hmap_[std::make_pair(0,0)]-> GetNbinsY();
 
-	///////////////////////////////////////////
-    // deriving simple DD channels resolution
-    ///////////////////////////////////////////	
-	
-	for (int sec_number=0; sec_number < MAX_SECTOR_NUMBER; sec_number++)
-	{
-		for  (int ch_idx=0; ch_idx < CHANNELS_X_PLANE; ch_idx++)
-		{
-			if (Raw_DT_Hmap_[std::make_pair(sec_number,ch_idx)]->GetEntries() >100)
-			{	
-				Saturated_percentage_V_[sec_number] ->SetPoint(ch_idx+1, ch_idx, (ToT_vs_ToT_Hmap_[std::make_pair(sec_number,ch_idx)]->Integral(X_sat_start,X_sat_stop,Y_sat_start,Y_sat_stop))/(ToT_vs_ToT_Hmap_[std::make_pair(sec_number,ch_idx)]->Integral()));
-
-				Raw_DT_Hmap_[std::make_pair(sec_number,ch_idx)]->Fit("gaus","+","",-3,3);
-				if (Raw_DT_Hmap_[std::make_pair(sec_number,ch_idx)]->GetFunction("gaus")!= NULL)
-					Raw_resolution_DD_V_[sec_number]->SetPoint(ch_idx+1, ch_idx, Raw_DT_Hmap_[std::make_pair(sec_number,ch_idx)]->GetFunction("gaus")->GetParameter(2)/sqrt(2));
-				else
-				{
-					std::cout << "WARNING: RAW DT fit unseccessfull for DD channel pair " << ch_idx << std::endl;
-					Raw_resolution_DD_V_[sec_number]->SetPoint(ch_idx+1, ch_idx, 0);
-				}
-				
-				SPC_DT_Hmap_[std::make_pair(sec_number,ch_idx)]->Fit("gaus","+Q","",-10,10);
-				if (SPC_DT_Hmap_[std::make_pair(sec_number,ch_idx)]->GetFunction("gaus")!= NULL)
-				{
-					double SPC_mean = SPC_DT_Hmap_[std::make_pair(sec_number,ch_idx)]->GetFunction("gaus")->GetParameter(1);
-					double SPC_sigma = SPC_DT_Hmap_[std::make_pair(sec_number,ch_idx)]->GetFunction("gaus")->GetParameter(2);
-					SPC_DT_Hmap_[std::make_pair(sec_number,ch_idx)]->Fit("gaus","","",SPC_mean-(2.2*SPC_sigma),SPC_mean+(2.2*SPC_sigma));		
-					SPC_resolution_DD_V_[sec_number]->SetPoint(ch_idx+1, ch_idx, SPC_DT_Hmap_[std::make_pair(sec_number,ch_idx)]->GetFunction("gaus")->GetParameter(2)/sqrt(2));
-				}
-				else
-				{
-					std::cout << "WARNING: SPC DT fit unseccessfull for DD channel pair " << ch_idx << std::endl;	
-					SPC_resolution_DD_V_[sec_number]->SetPoint(ch_idx+1, ch_idx, 0);
-				}				
-				
-			}
-			else
-			{
-				Raw_resolution_DD_V_[sec_number]->SetPoint(ch_idx+1, ch_idx, 0);	
-				SPC_resolution_DD_V_[sec_number]->SetPoint(ch_idx+1, ch_idx, 0);	
-			}
-		}
-	}	
-
-	std::cout << "Analyzing channel couplings " << std::endl;
 	
 	////////////////////////////////////////////
     // computing track based dual L2 resolution
@@ -1634,9 +1146,6 @@ DiamondTimingAnalyzer::endJob()
     for ( auto& Histo_handle : TOTvsT_Histo_map_ ) //rechit
     {
 		
-		//TOT average
-		ValidToT_mean_Hmap_[std::pair(Histo_handle.first.sector,Histo_handle.first.plane)]->SetBinContent(Histo_handle.first.channel+1,ValidTOT_Histo_map_[Histo_handle.first]->GetMean());
-		
 		TOTvsT_Profile_map_[ Histo_handle.first ] = channelDir_map_[ Histo_handle.first ].make<TProfile>(*Histo_handle.second->ProfileX("_pfx",1,-1));
 		if (Histo_handle.second->GetEntries() > 100 )
 		{
@@ -1660,20 +1169,7 @@ DiamondTimingAnalyzer::endJob()
 										<< std::endl; 
 									
 			TOTvsT_Profile_map_[ Histo_handle.first ]->Fit(myfermi,"B+","",10.4,Fit_UpRange);
-			
-			//secondary fit
-			/*TF1 *mygaus = new TF1("MYgaus","[3]-gaus",9.5,25);
-			mygaus-> SetParameters(3*ValidT_Histo_map_[Histo_handle.first]->GetRMS(),
-									ValidTOT_Histo_map_[Histo_handle.first]->GetMean()+ ValidTOT_Histo_map_[Histo_handle.first]->GetRMS(),
-									1.3,
-									ValidT_Histo_map_[Histo_handle.first]->GetMean()+ValidT_Histo_map_[Histo_handle.first]->GetRMS());
-			TOTvsT_Profile_map_[ Histo_handle.first ]->Fit(mygaus,"B+","",9.5,Fit_UpRange);
-			
-			std::cout << "starting parameters gaus: " << 3*ValidT_Histo_map_[Histo_handle.first]->GetRMS() 
-										<< " ; " << ValidTOT_Histo_map_[Histo_handle.first]->GetMean()+ ValidTOT_Histo_map_[Histo_handle.first]->GetRMS()
-										<< " ; " << 1.3 
-										<< " ; " << ValidT_Histo_map_[Histo_handle.first]->GetMean()+ValidT_Histo_map_[Histo_handle.first]->GetRMS()
-										<< std::endl;*/
+
 			
 			cal_sector_    = Histo_handle.first.sector;
 			cal_plane_  = Histo_handle.first.plane;
@@ -1682,68 +1178,7 @@ DiamondTimingAnalyzer::endJob()
 			cal_par_1_  = myfermi-> GetParameter(1);
 			cal_par_2_  = myfermi-> GetParameter(2);
 			cal_par_3_  = myfermi-> GetParameter(3);
-			////////////////////////////////////////////////////
-			// Run dependent code 2017 start
-			////////////////////////////////////////////////////
-			
-			//// 5 windows std clock
-			//
-			//if (Histo_handle.first.sector==0 && (Histo_handle.first.plane==0 || (Histo_handle.first.plane==1 && Histo_handle.first.channel>6)))
-			//{
-			//	if (cal_par_3_ < 12.5)
-			//		cal_par_3_  = myfermi-> GetParameter(3)+12.5;
-			//	else
-			//		cal_par_3_  = myfermi-> GetParameter(3)-12.5;
-			//}
-			//else
-			//{
-			//	cal_par_3_  = myfermi-> GetParameter(3);
-			//}
-			
-			//// 300122			
-			//if (Histo_handle.first.sector==0 && (Histo_handle.first.plane==0 || Histo_handle.first.plane==2 || Histo_handle.first.channel>6))
-			//{
-			//	if (cal_par_3_ < 12.5)
-			//		cal_par_3_  = myfermi-> GetParameter(3)+12.5;
-			//	else
-			//		cal_par_3_  = myfermi-> GetParameter(3)-12.5;
-			//}
-			//else
-			//{
-			//	cal_par_3_  = myfermi-> GetParameter(3);
-			//}
-			
-			// 300088		
-			if (Histo_handle.first.sector==0 && (Histo_handle.first.plane==0 || Histo_handle.first.plane==2 || Histo_handle.first.channel>6))
-			{
-				if (cal_par_3_ < 12.5)
-					cal_par_3_  = myfermi-> GetParameter(3)+12.5;
-				else
-					cal_par_3_  = myfermi-> GetParameter(3)-12.5;
-			}
-			else
-			{
-				cal_par_3_  = myfermi-> GetParameter(3);
-			}
-			
-			
-			//// 300155
-			//if (Histo_handle.first.sector==1 && ((Histo_handle.first.plane==1 &&  Histo_handle.first.channel==6) || (Histo_handle.first.plane==3 && Histo_handle.first.channel<7)))
-			//{
-			//	if (cal_par_3_ < 12.5)
-			//		cal_par_3_  = myfermi-> GetParameter(3)+12.5;
-			//	else
-			//		cal_par_3_  = myfermi-> GetParameter(3)-12.5;
-			//}
-			//else
-			//{
-			//	cal_par_3_  = myfermi-> GetParameter(3);
-			//}
-			
-			
-			////////////////////////////////////////////////////
-			// Run dependent code 2017 end
-			////////////////////////////////////////////////////
+
 			
 			Chi_2_  = myfermi-> GetChisquare();
 			
