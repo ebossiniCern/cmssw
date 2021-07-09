@@ -419,11 +419,13 @@ DiamondTimingAnalyzer::initHistograms(const CTPPSDiamondDetId& detId)
 void
 DiamondTimingAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 {
+	
   using namespace edm;
-  //edm::Handle< edm::DetSetVector<CTPPSDiamondDigi> > timingDigi;
+  
   edm::Handle< edm::DetSetVector<CTPPSDiamondRecHit> > timingRecHit;
   edm::Handle< edm::DetSetVector<CTPPSPixelLocalTrack> > pixelLocalTrack;
-  //iEvent.getByToken( tokenDigi_, timingDigi );
+  
+  
   iEvent.getByToken( tokenRecHit_, timingRecHit );
   iEvent.getByToken( tokenPixelLocalTrack_, pixelLocalTrack );
   
@@ -431,14 +433,12 @@ DiamondTimingAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& 
   
 
 
-//*run_ = iEvent.id().run();
-//*ev_ = iEvent.id().event();
-//*lumiblock_ = iEvent.luminosityBlock();
 
   
  ////////////////////////////////////////////////////////////////
 //
 //		EXTRACT PIXELS TRACK NUMBER
+//      Will be used for sector independent event selection
 //
 ///////////////////////////////////////////////////////////////// 
   
@@ -572,7 +572,7 @@ if (!(Sector_TBA[0] || Sector_TBA[1])) return;
 			// Run dependent code 2017 start
 			////////////////////////////////////////////////////
 			
-			 standard runs
+			// standard runs
 			TOTvsT_Histo_map_[recHitKey]-> Fill(DiamondDet.GetToT(detId.arm(), detId.plane(),detId.channel()), DiamondDet.GetTime(detId.arm(), detId.plane(),detId.channel()));
 			ValidT_Histo_map_[recHitKey]-> Fill( DiamondDet.GetTime(detId.arm(), detId.plane(),detId.channel()) );
 			
